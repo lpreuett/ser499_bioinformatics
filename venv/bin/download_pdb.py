@@ -1,6 +1,6 @@
 import urllib, sys, os
 
-PDB_DIR = './pdb'
+PDB_DIR = './Swarm Dock/pdb'
 PDB_FILE_EXT = '.pdb'
 PDB_DOWNLOAD_ADDRESS = 'https://files.rcsb.org/download/'
 
@@ -23,4 +23,4 @@ urlOpener = urllib.request.URLopener()
 if not os.path.isdir(PDB_DIR):
     os.makedirs(PDB_DIR)
 
-urlOpener.retrieve(PDB_DOWNLOAD_ADDRESS + pdb_id, PDB_DIR + pdb_id)
+urlOpener.retrieve(PDB_DOWNLOAD_ADDRESS + pdb_id, PDB_DIR + '/' + pdb_id)
