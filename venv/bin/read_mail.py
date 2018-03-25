@@ -57,19 +57,32 @@ def read_mail(mail, from_email, receptor_id, ligand_id):
                 ligand_split.append('')
 
             if debug:
-                print('Searching for : {}{}_{}{}'.format(receptor_split[0], receptor_split[1].upper(), ligand_split[0], \
-                                        ligand_split[1].upper()))
-                print('Results of search: {}'.format(re.search('{}{}_{}{}'.format(receptor_split[0], receptor_split[1].upper(), ligand_split[0], \
-                            ligand_split[1].upper()), payload)))
+                if 'ppdock' in from_email:
+                    print('Searching for : {}{}_{}{}'.format(receptor_split[0], receptor_split[1].upper(), ligand_split[0], \
+                                            ligand_split[1].upper()))
+                    print('Results of search: {}'.format(re.search('{}{}_{}{}'.format(receptor_split[0], receptor_split[1].upper(), ligand_split[0], \
+                                ligand_split[1].upper()), payload)))
+                elif 'swarmdock' in from_email:
+                    print('Searching for : {}_{}'.format(receptor_id, ligand_id))
+                    print('Results of search: {}'.format(re.search('{}_{}'.format(receptor_id, ligand_id), payload)))
 
-            if re.search('{}{}_{}{}'.format(receptor_split[0], receptor_split[1].upper(), ligand_split[0], \
-                        ligand_split[1].upper()), payload) != None:
-                # re source: https://stackoverflow.com/questions/9760588/how-do-you-extract-a-url-from-a-string-using-python
-                print('link: {}'.format(re.search("(?P<url>https?://[^\s]+)", payload).group("url")))
-                return
-            else:
-                # mark as unseen so the calling thread can find it
-                mail.store(num, '-FLAGS', '(\SEEN)')
+            if 'ppdock' in from_email:
+                if re.search('{}{}_{}{}'.format(receptor_split[0], receptor_split[1].upper(), ligand_split[0], \
+                            ligand_split[1].upper()), payload) != None:
+                    # re source: https://stackoverflow.com/questions/9760588/how-do-you-extract-a-url-from-a-string-using-python
+                    print('link: {}'.format(re.search("(?P<url>https?://[^\s]+)", payload).group("url")))
+                    return
+                else:
+                    # mark as unseen so the calling thread can find it
+                    mail.store(num, '-FLAGS', '(\SEEN)')
+            elif 'swarmdock' in from_email:
+                if re.search('{}_{}'.format(receptor_id, ligand_id), payload) != None:
+                    # re source: https://stackoverflow.com/questions/9760588/how-do-you-extract-a-url-from-a-string-using-python
+                    print('link: {}'.format(re.search("(?P<url>https?://[^\s]+)", payload).group("url")))
+                    return
+                else:
+                    # mark as unseen so the calling thread can find it
+                    mail.store(num, '-FLAGS', '(\SEEN)')
 
         raise ValueError('Email not found.')
     except:

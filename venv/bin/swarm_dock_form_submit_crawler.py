@@ -1,6 +1,7 @@
 import requests, sys, urllib3, json, os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+import time
 
 START_URL = 'https://bmm.crick.ac.uk/~svc-bmm-swarmdock/submit.cgi'
 EMAIL = 'ser499webscraper@gmail.com'
@@ -43,6 +44,8 @@ job_name_input.send_keys(sys.argv[1] + '_' + sys.argv[2])
 
 # submit job
 browser.find_element_by_name('formSubmitBut').click()
+
+time.sleep(10)
 
 # get job ID
 content_div = browser.find_element_by_id('content')

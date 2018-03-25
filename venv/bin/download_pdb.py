@@ -23,4 +23,5 @@ urlOpener = urllib.request.URLopener()
 if not os.path.isdir(PDB_DIR):
     os.makedirs(PDB_DIR)
 
-urlOpener.retrieve(PDB_DOWNLOAD_ADDRESS + pdb_id, PDB_DIR + '/' + pdb_id)
+if not os.path.isfile(PDB_DIR + '/' + pdb_id):
+    urlOpener.retrieve(PDB_DOWNLOAD_ADDRESS + pdb_id, PDB_DIR + '/' + pdb_id)

@@ -6,12 +6,15 @@ import threading
 import multiprocessing as mp
 import csv
 import os
+import tarfile
 
 PROCESS_NAME_PATCH_DOCK = 'patch_dock'
 PATCH_DOCK_START_FILE = 'patch_dock_form_submit_crawler.py'
 PATCH_DOCK_READ_MAIL_FILE = 'read_mail.py'
 PATCH_DOCK_GET_RESULTS_FILE = 'patch_dock_get_results.py'
 PATCH_DOCK_FROM_EMAIL = 'ppdock@tau.ac.il'
+PATCH_DOCK_DIR = './Patch Dock'
+PATCH_DOCK_SCORES_DIR = './Patch Dock/scores'
 
 DOWNLOAD_PDB_FILE ='download_pdb.py'
 
@@ -20,6 +23,7 @@ SWARM_DOCK_START_FILE = 'swarm_dock_form_submit_crawler.py'
 SWARM_DOCK_READ_MAIL_FILE = 'read_mail.py'
 SWARM_DOCK_GET_RESULTS_FILE = 'swarm_dock_get_results.py'
 SWARM_DOCK_FROM_EMAIL = 'lif-swarmdock@crick.ac.uk'
+SWARM_DOCK_OUTPUT_DIR = './Swarm Dock/output'
 
 OUTPUT_DIR = './workflow_output'
 
@@ -69,31 +73,56 @@ def get_patch_dock_results(link):
 
     return int(re.search(r'\d+', str(stdout)).group())
 
+def get_patch_dock_results_from_file(filename):
+    with open(PATCH_DOCK_SCORES_DIR + '/' + filename, 'r') as file:
+        line = file.readline()
+    return line
+
+def patch_dock_save_score(receptor_id, ligand_id, score):
+    if not os.path.isdir(PATCH_DOCK_DIR):
+        os.mkdir(PATCH_DOCK_DIR)
+    if not os.path.isdir(PATCH_DOCK_SCORES_DIR):
+        os.mkdir(PATCH_DOCK_SCORES_DIR)
+
+    filename = receptor_id.split(':')[0].upper() + '_' + ligand_id.split(':')[0].upper() + '.txt'
+    with open(PATCH_DOCK_SCORES_DIR + '/' + filename, 'w') as file:
+        file.write(str(score))
+
 def start_patch_dock_workflow(receptor_id, ligand_id, output):
     print('Receptor: {} Ligand: {}'.format(receptor_id, ligand_id))
-    # submit job to Patch Dock
-    run_patch_dock_start(receptor_id, ligand_id)
-
-    # get response from Patch Dock
-    received_patch_dock_msg = False
-    iteration = 0
-    while (not received_patch_dock_msg):
-        if iteration == 0:
-            print('Waiting 30 minutes...')
-            time.sleep(1800)  # 30 minute wait
-        else:
-            print('Waiting 5 minutes...')
-            time.sleep(300)
-
+    # check for stored results
+    filename = receptor_id.split(':')[0].upper() + '_' + ligand_id.split(':')[0].upper() + '.txt'
+    if os.path.isdir(PATCH_DOCK_SCORES_DIR) and os.path.isfile(PATCH_DOCK_SCORES_DIR + '/' + filename):
+        patch_dock_score = get_patch_dock_results_from_file(filename)
+    else:
+        # check mailbox for results first
         try:
             link = read_patch_dock_mail(receptor_id, ligand_id)
             received_patch_dock_msg = True
         except:
-            print('No response from Patch Dock.')
+            # submit job to Patch Dock
+            run_patch_dock_start(receptor_id, ligand_id)
+            received_patch_dock_msg = False
+        # get response from Patch Dock
+        iteration = 0
+        while (not received_patch_dock_msg):
+            if iteration == 0:
+                print('Waiting 30 minutes...')
+                time.sleep(1800)  # 30 minute wait
+            else:
+                print('Waiting 5 minutes...')
+                time.sleep(300)
 
-        iteration += 1
+            try:
+                link = read_patch_dock_mail(receptor_id, ligand_id)
+                received_patch_dock_msg = True
+            except:
+                print('No response from Patch Dock.')
 
-    patch_dock_score = get_patch_dock_results(link)
+            iteration += 1
+
+        patch_dock_score = get_patch_dock_results(link)
+        patch_dock_save_score(receptor_id, ligand_id, patch_dock_score)
 
     print('Patch Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, patch_dock_score))
     output.put(('patch dock', receptor_id, ligand_id, patch_dock_score))
@@ -165,35 +194,75 @@ def get_swarm_dock_results(link, receptor, ligand):
 
     return results
 
+def get_swarm_dock_results_from_file(filename):
+    RESULTS_FILENAME = 'sds/clusters_standard.txt'
+    # extract .tar.gz
+    tar = tarfile.open(SWARM_DOCK_OUTPUT_DIR + '/' + filename)
+    results_file = tar.extractfile(RESULTS_FILENAME)
+
+    results = None
+    is_first_line = True
+    for line in results_file:
+        if is_first_line:
+            is_first_line = False
+            continue
+        # select first result with 3 or less members
+        # decode line
+        decoded_line = line.decode('utf8')
+        # count number of members
+        members_start = decoded_line.find('[')
+        members_finish = decoded_line.find(']')
+        members = decoded_line[members_start + 1:members_finish].split('|')
+        if len(members) <= 3:
+            results = decoded_line.split(' ')
+            results = results[1:3] + results[4:]
+            results = ' '.join(results)
+            break
+    # returns array of scores
+    return results.rstrip().split(' ')
+
 def start_swarm_dock_workflow(receptor_id, ligand_id, output):
     print('Receptor: {} Ligand: {}'.format(receptor_id, ligand_id))
-    # download pdbs
-    download_pdb(receptor_id)
-    download_pdb(ligand_id)
-    # submit job to Patch Dock
-    run_swarm_dock_start(receptor_id, ligand_id)
-
-    # get response from Swarm Dock
-    received_swarm_dock_msg = False
-    iteration = 0
-    while (not received_swarm_dock_msg):
-        if iteration == 0:
-            print('Waiting 30 minutes...')
-            # time.sleep(1800)  # 30 minute wait
-        else:
-            print('Waiting 10 minutes...')
-            time.sleep(300)
-
+    # check if results are stored
+    filename = receptor_id.split(':')[0].upper() + '_' + ligand_id.split(':')[0].upper() + '.tar.gz'
+    if os.path.isdir(SWARM_DOCK_OUTPUT_DIR) and os.path.isfile(SWARM_DOCK_OUTPUT_DIR + '/' + filename):
+        swarm_dock_score = get_swarm_dock_results_from_file(filename)
+    else:
+        received_swarm_dock_msg = False
+        # check mailbox for results first
         try:
             link = read_swarm_dock_mail(receptor_id, ligand_id)
             received_swarm_dock_msg = True
         except:
-            print('No response from Swarm Dock.')
+            # download pdbs
+            download_pdb(receptor_id)
+            download_pdb(ligand_id)
+            # submit job to Patch Dock
+            try:
+                run_swarm_dock_start(receptor_id, ligand_id)
+            except:
+                print('Error submitting swarm dock job')
+                sys.exit(1)
 
-        iteration += 1
+        # get response from Swarm Dock
+        iteration = 0
+        while (not received_swarm_dock_msg):
+            if iteration == 0:
+                print('Waiting 30 minutes...')
+                time.sleep(1800)  # 30 minute wait
+            else:
+                print('Waiting 10 minutes...')
+                time.sleep(300)
 
-    swarm_dock_score = get_swarm_dock_results(link, receptor_id, ligand_id)
+            try:
+                link = read_swarm_dock_mail(receptor_id, ligand_id)
+                received_swarm_dock_msg = True
+            except:
+                print('No response from Swarm Dock.')
 
+            iteration += 1
+
+        swarm_dock_score = get_swarm_dock_results(link, receptor_id, ligand_id)
 
     print('Swarm Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, swarm_dock_score))
     output.put(('swarm dock', receptor_id, ligand_id, float(swarm_dock_score[0]), int(swarm_dock_score[1]), int(swarm_dock_score[2]),
