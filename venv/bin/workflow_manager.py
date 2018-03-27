@@ -9,21 +9,22 @@ import os
 import tarfile
 
 PROCESS_NAME_PATCH_DOCK = 'patch_dock'
-PATCH_DOCK_START_FILE = 'patch_dock_form_submit_crawler.py'
-PATCH_DOCK_READ_MAIL_FILE = 'read_mail.py'
-PATCH_DOCK_GET_RESULTS_FILE = 'patch_dock_get_results.py'
-PATCH_DOCK_FROM_EMAIL = 'ppdock@tau.ac.il'
 PATCH_DOCK_DIR = './Patch Dock'
-PATCH_DOCK_SCORES_DIR = './Patch Dock/scores'
+PATCH_DOCK_SCORES_DIR = PATCH_DOCK_DIR + '/scores'
+PATCH_DOCK_START_FILE = PATCH_DOCK_DIR + '/patch_dock_form_submit_crawler.py'
+PATCH_DOCK_READ_MAIL_FILE = 'read_mail.py'
+PATCH_DOCK_GET_RESULTS_FILE = PATCH_DOCK_DIR + '/patch_dock_get_results.py'
+PATCH_DOCK_FROM_EMAIL = 'ppdock@tau.ac.il'
 
 DOWNLOAD_PDB_FILE ='download_pdb.py'
 
+SWARM_DOCK_DIR = './Swarm Dock'
+SWARM_DOCK_OUTPUT_DIR = SWARM_DOCK_DIR + '/output'
 PROCESS_NAME_SWARM_DOCK = 'swarm_dock'
-SWARM_DOCK_START_FILE = 'swarm_dock_form_submit_crawler.py'
+SWARM_DOCK_START_FILE = SWARM_DOCK_DIR + '/swarm_dock_form_submit_crawler.py'
 SWARM_DOCK_READ_MAIL_FILE = 'read_mail.py'
-SWARM_DOCK_GET_RESULTS_FILE = 'swarm_dock_get_results.py'
+SWARM_DOCK_GET_RESULTS_FILE = SWARM_DOCK_DIR + '/swarm_dock_get_results.py'
 SWARM_DOCK_FROM_EMAIL = 'lif-swarmdock@crick.ac.uk'
-SWARM_DOCK_OUTPUT_DIR = './Swarm Dock/output'
 
 OUTPUT_DIR = './workflow_output'
 
