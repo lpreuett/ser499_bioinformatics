@@ -16,7 +16,7 @@ PATCH_DOCK_READ_MAIL_FILE = 'read_mail.py'
 PATCH_DOCK_GET_RESULTS_FILE = PATCH_DOCK_DIR + '/patch_dock_get_results.py'
 PATCH_DOCK_FROM_EMAIL = 'ppdock@tau.ac.il'
 
-DOWNLOAD_PDB_FILE ='download_pdb.py'
+
 
 SWARM_DOCK_DIR = './Swarm Dock'
 SWARM_DOCK_OUTPUT_DIR = SWARM_DOCK_DIR + '/output'
@@ -25,6 +25,9 @@ SWARM_DOCK_START_FILE = SWARM_DOCK_DIR + '/swarm_dock_form_submit_crawler.py'
 SWARM_DOCK_READ_MAIL_FILE = 'read_mail.py'
 SWARM_DOCK_GET_RESULTS_FILE = SWARM_DOCK_DIR + '/swarm_dock_get_results.py'
 SWARM_DOCK_FROM_EMAIL = 'lif-swarmdock@crick.ac.uk'
+DOWNLOAD_PDB_FILE = SWARM_DOCK_DIR +'/download_pdb.py'
+
+PYDOCK_FROM_EMAIL = 'pydock@mmb.pdb.ub.es'
 
 OUTPUT_DIR = './workflow_output'
 

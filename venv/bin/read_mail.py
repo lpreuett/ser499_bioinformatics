@@ -39,13 +39,15 @@ def read_mail(mail, from_email, receptor_id, ligand_id):
                     print("Local Date: {}".format(local_date.strftime("%a, %d %b %Y %H:%M:%S")))
 
             if msg.is_multipart():
-                payload = msg.get_payload()[0].get_payload()
-                if debug:
-                    print('payload: {}'.format(payload))
+                #payload = msg.get_payload()[0].get_payload()
+                for part in msg.walk():
+                    if part.get_content_type() == 'text/html':
+                        payload = part.get_payload()
             else:
                 payload = msg.get_payload()
-                if debug:
-                    print('payload: {}'.format(payload))
+
+            if debug:
+                print('payload: {}'.format(payload))
 
 
             receptor_split = receptor_id.split(':')
@@ -65,6 +67,9 @@ def read_mail(mail, from_email, receptor_id, ligand_id):
                 elif 'swarmdock' in from_email:
                     print('Searching for : {}_{}'.format(receptor_id, ligand_id))
                     print('Results of search: {}'.format(re.search('{}_{}'.format(receptor_id, ligand_id), payload)))
+                elif 'pydock' in from_email:
+                    print('Searching for: {}_{}'.format(receptor_id, ligand_id))
+                    print('Results of search: {}'.format(re.search('{}_{}'.format(receptor_id, ligand_id), payload)))
 
             if 'ppdock' in from_email:
                 if re.search('{}{}_{}{}'.format(receptor_split[0], receptor_split[1].upper(), ligand_split[0], \
@@ -83,10 +88,17 @@ def read_mail(mail, from_email, receptor_id, ligand_id):
                 else:
                     # mark as unseen so the calling thread can find it
                     mail.store(num, '-FLAGS', '(\SEEN)')
+            elif 'pydock' in from_email:
+                if re.search('{}_{}'.format(receptor_id, ligand_id), payload) != None:
+                    print('link: {}'.format(re.search("(?P<url>https?://[^\s]+)", payload).group("url").split('"')[0]))
+                    return
+                else:
+                    # mark as unseen so the calling thread can find it
+                    mail.store(num, '-FLAGS', '(\SEEN)')
 
         raise ValueError('Email not found.')
-    except:
-        print('Error during link extraction')
+    except Exception as e:
+        print('Error during link extraction\nException: {}'.format(e))
 
 from_email = sys.argv[1]
 receptor_id = sys.argv[2]
