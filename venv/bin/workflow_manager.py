@@ -27,11 +27,126 @@ SWARM_DOCK_GET_RESULTS_FILE = SWARM_DOCK_DIR + '/swarm_dock_get_results.py'
 SWARM_DOCK_FROM_EMAIL = 'lif-swarmdock@crick.ac.uk'
 DOWNLOAD_PDB_FILE = SWARM_DOCK_DIR +'/download_pdb.py'
 
+PYDOCK_DIR = './pyDockWEB'
+PYDOCK_OUTPUT_DIR = PYDOCK_DIR + '/output'
+PROCESS_NAME_PYDOCK = 'py_dock'
+PYDOCK_READ_MAIL_FILE = 'read_mail.py'
+PYDOCK_START_FILE = PYDOCK_DIR + '/pyDock_form_submit.py'
+PYDOCK_GET_RESULTS_FILE = PYDOCK_DIR + '/pyDock_get_results.py'
 PYDOCK_FROM_EMAIL = 'pydock@mmb.pdb.ub.es'
 
 OUTPUT_DIR = './workflow_output'
 
 MAX_NUM_WORKFLOW_PROCESSES = 1
+
+def start_pydock_workflow(receptor_id, ligand_id, output):
+    print('Receptor: {} Ligand: {}'.format(receptor_id, ligand_id))
+    # check for stored results
+    filename = receptor_id.split(':')[0].upper() + '_' + ligand_id.split(':')[0].upper() + '.tar.gz'
+    if os.path.isdir(PYDOCK_OUTPUT_DIR) and os.path.isfile(PYDOCK_OUTPUT_DIR + '/' + filename):
+        pydock_score = get_pydock_results_from_file(filename)
+    else:
+        # check mailbox for results first
+        try:
+            link = read_pydock_mail(receptor_id, ligand_id)
+            received_pydock_msg = True
+        except:
+            # submit job to Patch Dock
+            run_pydock_start(receptor_id, ligand_id)
+            received_pydock_msg = False
+        # get response from Patch Dock
+        iteration = 0
+        while (not received_pydock_msg):
+            if iteration == 0:
+                print('Waiting 30 minutes...')
+                time.sleep(1800)  # 30 minute wait
+            else:
+                print('Waiting 5 minutes...')
+                time.sleep(300)
+
+            try:
+                link = read_pydock_mail(receptor_id, ligand_id)
+                received_py_dock_msg = True
+            except:
+                print('No response from PyDock.')
+
+            iteration += 1
+
+        pydock_score = get_pydock_results(link, receptor_id, ligand_id)
+        pydock_save_score(receptor_id, ligand_id, pydock_score)
+
+    print('PyDock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, pydock_score))
+    output.put((PROCESS_NAME_PYDOCK, receptor_id, ligand_id, pydock_score))
+
+def run_pydock_start(receptor, ligand):
+    pydock_start_process = subprocess.Popen(
+            ['python', PYDOCK_START_FILE, receptor, ligand],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE
+    )
+    communicateRes = pydock_start_process.communicate()
+    stdout, stderr = communicateRes
+
+    print('initial web scraper stdout: {} \n initial web scraper stderr: {}'.format(stdout, stderr))
+
+    if ' line ' not in str(stderr):
+        print('Successfully submitted PyDock job.')
+    else:
+        print('Error in run_pydock_start: {}'.format(stderr))
+        raise Exception('run_pydock_start')
+
+def read_pydock_mail(receptor, ligand):
+    read_pydock_process = subprocess.Popen(['python', PYDOCK_READ_MAIL_FILE, PYDOCK_FROM_EMAIL, \
+                                                receptor, ligand], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    communicateRes = read_pydock_process.communicate()
+    stdout, stderr = communicateRes
+
+    print('read mail stdout: {}'.format(stdout))
+    print('read mail stderr: {}'.format(stderr))
+
+    # re source: https://stackoverflow.com/questions/9760588/how-do-you-extract-a-url-from-a-string-using-python
+    link = re.search("(?P<url>https?://[^\s]+)", str(stdout)).group("url").split('\\r')[0]
+    # strip extra chars
+    link = link.strip("\\n'")
+    print('link: {}'.format(link))
+    return link
+
+def get_pydock_results(link, receptor, ligand):
+    get_pydock_process = subprocess.Popen(
+        ['python', PYDOCK_GET_RESULTS_FILE, link, receptor ,ligand],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE
+    )
+    communicateRes = get_pydock_process.communicate()
+    stdout, stderr = communicateRes
+
+    print('stdout: {}'.format(str(stdout)))
+
+    results = re.findall(r'[-]?[0-9]+[.]?[0-9]*', str(stdout))
+
+    return results
+
+def get_pydock_results_from_file(filename):
+    # extract .tar.gz
+    tar = tarfile.open(PYDOCK_OUTPUT_DIR + '/' + filename)
+    tar_members = tar.getmembers()
+    RESULTS_FILE = None
+    for m in tar_members:
+        if re.search('\w+\.ene', m.name):
+            RESULTS_FILE = m.name
+    results_file = tar.extractfile(RESULTS_FILE)
+
+    results = None
+    line_num = 0
+    for line in results_file:
+        if line_num == 2:
+            # top result
+            decoded_line = line.decode('utf-8')
+            outputs = re.findall('(-?\d+\.\d+)', decoded_line)
+            results = ' '.join(outputs)
+            break
+
+        line_num += 1
+
+    return results
 
 def run_patch_dock_start(receptor, ligand):
     patch_dock_start_process = subprocess.Popen(
@@ -44,7 +159,7 @@ def run_patch_dock_start(receptor, ligand):
     print('initial web scraper stdout: {} \n initial web scraper stderr: {}'.format(stdout, stderr))
 
     if ' line ' not in str(stderr):
-        print('Successfully submitted job.')
+        print('Successfully submitted Patch Dock job.')
     else:
         print('Error in run_patch_dock_start: {}'.format(stderr))
         raise Exception('run_patch_dock_start')
@@ -129,7 +244,7 @@ def start_patch_dock_workflow(receptor_id, ligand_id, output):
         patch_dock_save_score(receptor_id, ligand_id, patch_dock_score)
 
     print('Patch Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, patch_dock_score))
-    output.put(('patch dock', receptor_id, ligand_id, patch_dock_score))
+    output.put((PROCESS_NAME_PATCH_DOCK, receptor_id, ligand_id, patch_dock_score))
 
 def run_swarm_dock_start(receptor, ligand):
     swarm_dock_start_process = subprocess.Popen(
@@ -142,7 +257,7 @@ def run_swarm_dock_start(receptor, ligand):
     print('swarm dock start stdout: {} \n swarm dock start stderr: {}'.format(stdout, stderr))
 
     if 'ID:' in str(stdout):
-        print('Successfully submitted job.')
+        print('Successfully submitted Swarm Dock job.')
     else:
         print('Error in run_swarm_dock_start: {}'.format(stderr))
         raise Exception('run_swarm_dock_start')
@@ -269,7 +384,7 @@ def start_swarm_dock_workflow(receptor_id, ligand_id, output):
         swarm_dock_score = get_swarm_dock_results(link, receptor_id, ligand_id)
 
     print('Swarm Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, swarm_dock_score))
-    output.put(('swarm dock', receptor_id, ligand_id, float(swarm_dock_score[0]), int(swarm_dock_score[1]), int(swarm_dock_score[2]),
+    output.put((PROCESS_NAME_SWARM_DOCK, receptor_id, ligand_id, float(swarm_dock_score[0]), int(swarm_dock_score[1]), int(swarm_dock_score[2]),
                         int(swarm_dock_score[3]), int(swarm_dock_score[4]), float(swarm_dock_score[5]), float(swarm_dock_score[6])))
 
 def write_output(results):
@@ -301,9 +416,11 @@ except:
     print('Unable to process file: {}'.format(sys.argv[1]))
     sys.exit(1)
 
+
 # create processes
 patch_dock_processes = [mp.Process(target=start_patch_dock_workflow, args=(pair[0], pair[1], output)) for pair in rec_lig_pairs]
 swarm_dock_processes = [mp.Process(target=start_swarm_dock_workflow, args=(pair[0], pair[1], output)) for pair in rec_lig_pairs]
+pydock_processes = [mp.Process(target=start_pydock_workflow, args=(pair[0], pair[1], output)) for pair in rec_lig_pairs]
 
 processes_executed = 0
 
@@ -314,25 +431,31 @@ while processes_executed < len(patch_dock_processes):
         for i in range(num_processes_to_start):
             patch_dock_processes[processes_executed + i].start()
             swarm_dock_processes[processes_executed + i].start()
+            pydock_processes[processes_executed + i].start()
         for i in range(num_processes_to_start):
             patch_dock_processes[processes_executed + i].join()
             swarm_dock_processes[processes_executed + i].join()
+            pydock_processes[processes_executed + i].join()
         processes_executed += num_processes_to_start
     else:
         for i in range(MAX_NUM_WORKFLOW_PROCESSES):
             print('start: processes_executed {} i: {}'.format(processes_executed, i))
             patch_dock_processes[processes_executed + i].start()
             swarm_dock_processes[processes_executed + i].start()
+            pydock_processes[processes_executed + i].start()
         for i in range(MAX_NUM_WORKFLOW_PROCESSES):
             print('join: processes_executed {} i: {}'.format(processes_executed, i))
             patch_dock_processes[processes_executed + i].join()
             swarm_dock_processes[processes_executed + i].join()
+            pydock_processes[processes_executed + i].join()
         processes_executed += MAX_NUM_WORKFLOW_PROCESSES
 
 patch_dock_results = [output.get() for p in patch_dock_processes]
 swarm_dock_results = [output.get() for p in swarm_dock_processes]
+pydock_results = [output.get() for p in pydock_processes]
 
-write_output(patch_dock_results + swarm_dock_results)
+write_output(patch_dock_results + swarm_dock_results + pydock_processes)
 
 print('Patch Dock Results: {}'.format(patch_dock_results))
 print('Swarm Dock Results: {}'.format(swarm_dock_results))
+print('PyDock Results: {}'.format(pydock_results))

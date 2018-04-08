@@ -10,19 +10,19 @@
 1hrp:ab 1poh // data collected
 1ba7:b 1a19:b // data collected
 1tfh:a 3lzt // data collected
-3eed:ab 966c:a // job submitted 4-3
-3hmw:lh 3mxv:lh // job submitted 4-3
-1nca:hl 1nsn:hl // job submitted 4-3
-3rvt:cd 4dn3:lh // job submitted 4-3
-4fqh:hl 4g5z:hl // job submitted 4-3
-2dcy:a 1tfh:a // job submitted 4-3
-4g6k:hl 4gxv:hl // job submitted 4-3
-1fgn:lh 1bvl:ba // job submitted 4-3
-1dqq:cd 1e6o:hl // job submitted 4-3
-1jpt:hl 1mlb:ab // job submitted 4-3
-1vfa:ab 1qbl:hl // job submitted 4-3
-2fat:hl 2i24:n // job submitted 4-3
-1gig:lh 2vxu:hl // job submitted 4-3
+3eed:ab 966c:a // data collected
+3hmw:lh 3mxv:lh // data collected
+1nca:hl 1nsn:hl // data collected
+3rvt:cd 4dn3:lh // data collected
+4fqh:hl 4g5z:hl // data collected
+2dcy:a 1tfh:a // data collected
+4g6k:hl 4gxv:hl // data collected
+1fgn:lh 1bvl:ba // data collected
+1dqq:cd 1e6o:hl // data collected
+1jpt:hl 1mlb:ab // data collected
+1vfa:ab 1qbl:hl // data collected
+2fat:hl 2i24:n // data collected
+1gig:lh 2vxu:hl // data collected
 2w9d:hl 3eo9:lh // job submitted 4-3
 1f32:a 1kdc // job submitted 4-3
 1crz:a 1tgk // job submitted 4-3
