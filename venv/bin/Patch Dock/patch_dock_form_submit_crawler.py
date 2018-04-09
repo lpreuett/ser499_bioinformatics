@@ -25,5 +25,5 @@ class BioSpider(scrapy.Spider):
             callback=self.after_patchdock_submit
         )
 
-    def after_patchdock_submit(self, arg1):
+    def after_patchdock_submit(self, response):
         return

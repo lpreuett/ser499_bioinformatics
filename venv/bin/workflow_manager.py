@@ -73,7 +73,6 @@ def start_pydock_workflow(receptor_id, ligand_id, output):
             iteration += 1
 
         pydock_score = get_pydock_results(link, receptor_id, ligand_id)
-        pydock_save_score(receptor_id, ligand_id, pydock_score)
 
     print('PyDock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, pydock_score))
     output.put((PROCESS_NAME_PYDOCK, receptor_id, ligand_id, pydock_score))
@@ -416,7 +415,6 @@ except:
     print('Unable to process file: {}'.format(sys.argv[1]))
     sys.exit(1)
 
-
 # create processes
 patch_dock_processes = [mp.Process(target=start_patch_dock_workflow, args=(pair[0], pair[1], output)) for pair in rec_lig_pairs]
 swarm_dock_processes = [mp.Process(target=start_swarm_dock_workflow, args=(pair[0], pair[1], output)) for pair in rec_lig_pairs]
@@ -454,7 +452,7 @@ patch_dock_results = [output.get() for p in patch_dock_processes]
 swarm_dock_results = [output.get() for p in swarm_dock_processes]
 pydock_results = [output.get() for p in pydock_processes]
 
-write_output(patch_dock_results + swarm_dock_results + pydock_processes)
+write_output(patch_dock_results + swarm_dock_results + pydock_results)
 
 print('Patch Dock Results: {}'.format(patch_dock_results))
 print('Swarm Dock Results: {}'.format(swarm_dock_results))
