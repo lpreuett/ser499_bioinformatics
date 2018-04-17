@@ -212,6 +212,9 @@ class KNN_Classifier:
 
         return classified_data.astype(int)
 
+# RETURN LABEL IN PLACE OF 0/1
+# USE sqlite3 LIBRARY
+
 classifier = KNN_Classifier(5)
 data = numpy.array([[14598, -40.73, 1, 497, 0, 0, -40.730, 0.000, -12.886, -30.628, 21.847, -41.329]])
 data = data.astype(float)

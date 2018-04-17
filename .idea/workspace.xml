@@ -2,11 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9463f41-7d77-4929-9962-cfb5317c9331" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/venv/bin/KNN_Classifier_V2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/bin/Database/load_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/KNN_K_Fold_Classifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/patch_dock_form_submit_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/patch_dock_form_submit_crawler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_get_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_get_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/KNN_Classifier_V2.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/KNN_Classifier_V2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1A43_1TFH.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1A43_1TFH.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1AB8_2CLR.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1AB8_2CLR.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1ALY_1D7P.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1ALY_1D7P.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1AUQ_1FVU.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1AUQ_1FVU.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1AUQ_1M0Z.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1AUQ_1M0Z.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1BA7_1A19.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1BA7_1A19.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1BEC_1SE4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1BEC_1SE4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1BJ1_1FSK.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1BJ1_1FSK.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1BQU_1EMR.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1BQU_1EMR.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1BVL_3LZT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1BVL_3LZT.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1C3D_1M1U.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1C3D_1M1U.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1CCP_1YCC.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1CCP_1YCC.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1CRZ_1TGK.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1CRZ_1TGK.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1DQQ_1E6O.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1DQQ_1E6O.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1DQQ_3LZT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1DQQ_3LZT.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1E6O_1A43.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1E6O_1A43.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1F32_1KDC.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1F32_1KDC.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1FGN_1BVL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1FGN_1BVL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1FGN_1TFH.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1FGN_1TFH.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1FKM_1Z06.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1FKM_1Z06.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1GFI_2BV1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1GFI_2BV1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1GIG_2VXU.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1GIG_2VXU.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1HRP_1POH.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1HRP_1POH.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1I9R_1IQD.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1I9R_1IQD.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1IJJ_1PNE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1IJJ_1PNE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1JPT_1MLB.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1JPT_1MLB.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1JPT_1TFH.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1JPT_1TFH.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1JVM_1PPI.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1JVM_1PPI.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1JXQ_2OPQ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1JXQ_2OPQ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1L6P_2B1K.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1L6P_2B1K.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1MH1_1HE9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1MH1_1HE9.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1MH1_1NTY.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1MH1_1NTY.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1MLB_4PEP.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1MLB_4PEP.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1NCA_1NSN.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1NCA_1NSN.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1OFT_3LVM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1OFT_3LVM.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1PIG_1HOE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1PIG_1HOE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1R6C_2W9R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1R6C_2W9R.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1SUP_3SSI.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1SUP_3SSI.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1TFH_3LZT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1TFH_3LZT.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1U90_2C8B.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1U90_2C8B.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/1VFA_1QBL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/1VFA_1QBL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/2CGA_1HPT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/2CGA_1HPT.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/2DCY_1TFH.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/2DCY_1TFH.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/2FAT_2I24.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/2FAT_2I24.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/2VPF_1BV1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/2VPF_1BV1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/2W9D_3EO9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/2W9D_3EO9.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/2ZKM_1MH1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/2ZKM_1MH1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3EED_966C.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3EED_966C.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3EO0_1TGJ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3EO0_1TGJ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3F74_1F45.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3F74_1F45.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3HI5_1MJN.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3HI5_1MJN.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3HMW_1F45.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3HMW_1F45.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3HMW_3MXV.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3HMW_3MXV.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3KOV_3IO2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3KOV_3IO2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3LZT_8LYZ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3LZT_8LYZ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3M1N_3F5V.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3M1N_3F5V.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3RVT_4DN3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3RVT_4DN3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3UIU_1Q46.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3UIU_1Q46.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/3V6F_3KXS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/3V6F_3KXS.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/4FQH_4G5Z.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/4FQH_4G5Z.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/4G6K_4GXV.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/4G6K_4GXV.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Patch Dock/scores/7NN9_1KDC.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Patch Dock/output/7NN9_1KDC.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_form_submit_crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_form_submit_crawler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/bad_pairs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/bad_pairs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/workflow_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/workflow_manager.py" afterDir="false" />
     </list>
@@ -20,6 +82,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/SER499_web_scraper$read_gmail.coverage" NAME="read_gmail Coverage Results" MODIFIED="1518396497469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$pyDock_get_results.coverage" NAME="pyDock_get_results Coverage Results" MODIFIED="1523222824131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/pyDockWEB" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$load_db.coverage" NAME="load_db Coverage Results" MODIFIED="1523990526722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Database" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$pdb_crawler.coverage" NAME="pdb_crawler Coverage Results" MODIFIED="1519795069698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$download_pdb__1_.coverage" NAME="download_pdb (1) Coverage Results" MODIFIED="1519931174316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$crawler.coverage" NAME="crawler Coverage Results" MODIFIED="1517981208552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
@@ -27,41 +90,20 @@
     <SUITE FILE_PATH="coverage/SER499_web_scraper$patch_dock_read_mail.coverage" NAME="patch_dock_read_mail Coverage Results" MODIFIED="1522807097273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$swarm_dock_get_results.coverage" NAME="swarm_dock_get_results Coverage Results" MODIFIED="1522820182525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Swarm Dock" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$swarm_dock_form_submit_crawler__1_.coverage" NAME="swarm_dock_form_submit_crawler (1) Coverage Results" MODIFIED="1522732445927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Swarm Dock" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$KNN_Classifier_V2.coverage" NAME="KNN_Classifier_V2 Coverage Results" MODIFIED="1523232297470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$KNN_Classifier_V2.coverage" NAME="KNN_Classifier_V2 Coverage Results" MODIFIED="1523416047989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$swarm_dock_form_submit_crawler.coverage" NAME="swarm_dock_form_submit_crawler Coverage Results" MODIFIED="1522003843296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$pyDock_form_submit.coverage" NAME="pyDock_form_submit Coverage Results" MODIFIED="1522185709070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/pyDockWEB" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$patch_dock_form_submit_crawler.coverage" NAME="patch_dock_form_submit_crawler Coverage Results" MODIFIED="1518499367515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$workflow_manager.coverage" NAME="workflow_manager Coverage Results" MODIFIED="1523247802916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$workflow_manager.coverage" NAME="workflow_manager Coverage Results" MODIFIED="1523939126293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$download_pdb.coverage" NAME="download_pdb Coverage Results" MODIFIED="1522732437024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Swarm Dock" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="read_mail.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/bin/read_mail.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workflow_inputs.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="KNN_Classifier_V2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/KNN_Classifier_V2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-559">
-              <caret line="141" column="50" selection-start-line="141" selection-start-column="50" selection-end-line="141" selection-end-column="50" />
+            <state relative-caret-position="495">
+              <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
               <folding>
                 <element signature="e#51#63#0" expanded="true" />
               </folding>
@@ -72,8 +114,19 @@
       <file leaf-file-name="patch_dock_form_submit_crawler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/Patch Dock/patch_dock_form_submit_crawler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+            <state relative-caret-position="75">
+              <caret line="5" column="70" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="patch_dock_get_results.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/bin/Patch Dock/patch_dock_get_results.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,8 +134,8 @@
       <file leaf-file-name="workflow_manager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="454" column="69" selection-start-line="454" selection-start-column="69" selection-end-line="454" selection-end-column="69" />
+            <state relative-caret-position="2205">
+              <caret line="147" column="37" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -90,41 +143,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bad_pairs.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bad_pairs.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="4" selection-start-line="19" selection-end-line="19" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pyDock_form_submit.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="30" column="12" selection-start-line="30" selection-end-line="30" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pyDock_get_results.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_get_results.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="swarm_dock_get_results.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_get_results.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            <state relative-caret-position="210">
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -134,6 +157,48 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="load_db.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/bin/Database/load_db.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2250">
+              <caret line="150" column="52" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pyDock_form_submit.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="60" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="swarm_dock_form_submit_crawler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_form_submit_crawler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pyDock_get_results.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_get_results.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="885">
+              <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -149,23 +214,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>1oft:ab</find>
-      <find>re</find>
-      <find>re.</find>
-      <find>Job</find>
-      <find>&lt;h3</find>
-      <find>https://life.bsc.es/pid/pydockweb/jobs/get_info/2018-03-27_23:22:04_YTAQPZG3UI4GBTGT/project7753.tgz</find>
-      <find>https://life.bsc.es/pid/pydockweb/jobs/get_info/jobs/get_info/2018-03-27_23:22:04_YTAQPZG3UI4GBTGT/project7753.tgz</find>
-      <find>1jvm</find>
-      <find />
-      <find>PROCESS_NAME_SWARM_DOCK</find>
-      <find>patch_dock</find>
-      <find />
       <find>start_patch_dock_workflow</find>
-      <find />
-      <find />
-      <find />
-      <find />
+      <find>1nca:hl 1nsn:hl</find>
+      <find>3rvt:cd 4dn3:lh</find>
+      <find>4fqh:hl 4g5z:hl</find>
       <find>scrapy</find>
       <find>__NUM_INPUT_DATA</find>
       <find>get</find>
@@ -179,12 +231,28 @@
       <find>15340</find>
       <find>1f</find>
       <find>14598</find>
+      <find>4-7</find>
+      <find>'.'</find>
+      <find>// job submitted 4-3</find>
+      <find>scores</find>
+      <find>upper()</find>
+      <find>get_patch_</find>
+      <find>INSERT</find>
+      <find>get_pydock_results</find>
+      <find>PatchD</find>
+      <find>Patch_DOCK_NAME</find>
+      <find>{</find>
+      <find>{</find>
+      <find>:tool</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>download_link</replace>
       <replace>pdb_id</replace>
       <replace>save_file_name</replace>
+      <replace>4-10</replace>
+      <replace>':'</replace>
+      <replace>PATCH_DOCK_NAME</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -208,12 +276,14 @@
         <option value="$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py" />
         <option value="$PROJECT_DIR$/venv/bin/read_mail.py" />
         <option value="$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_get_results.py" />
-        <option value="$PROJECT_DIR$/venv/bin/bad_pairs.txt" />
         <option value="$PROJECT_DIR$/venv/bin/Patch Dock/patch_dock_form_submit_crawler.py" />
         <option value="$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_get_results.py" />
-        <option value="$PROJECT_DIR$/venv/bin/workflow_manager.py" />
-        <option value="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" />
         <option value="$PROJECT_DIR$/venv/bin/KNN_Classifier_V2.py" />
+        <option value="$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_form_submit_crawler.py" />
+        <option value="$PROJECT_DIR$/venv/bin/bad_pairs.txt" />
+        <option value="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" />
+        <option value="$PROJECT_DIR$/venv/bin/workflow_manager.py" />
+        <option value="$PROJECT_DIR$/venv/bin/Database/load_db.py" />
       </list>
     </option>
   </component>
@@ -223,7 +293,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -234,7 +304,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,7 +327,7 @@
               <item name="SER499_web_scraper" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="Patch Dock" type="462c0819:PsiDirectoryNode" />
+              <item name="Database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SER499_web_scraper" type="b2602c69:ProjectViewProjectNode" />
@@ -266,7 +335,6 @@
               <item name="venv" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
               <item name="Patch Dock" type="462c0819:PsiDirectoryNode" />
-              <item name="scores" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SER499_web_scraper" type="b2602c69:ProjectViewProjectNode" />
@@ -280,32 +348,17 @@
               <item name="SER499_web_scraper" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="pyDockWEB" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SER499_web_scraper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SER499_web_scraper" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
               <item name="Swarm Dock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SER499_web_scraper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SER499_web_scraper" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="Swarm Dock" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/larry/PycharmProjects/SER499_web_scraper/venv/bin/swarm_dock_get_results.py" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/larry/PycharmProjects/SER499_web_scraper/venv/bin/workflow_manager.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -327,7 +380,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.workflow_manager">
+  <component name="RunManager" selected="Python.load_db">
     <configuration name="KNN_Classifier_V2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SER499_web_scraper" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -347,21 +400,21 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="patch_dock_read_mail" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="load_db" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SER499_web_scraper" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/bin" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/bin/Database" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/bin/read_mail.py" />
-      <option name="PARAMETERS" value="pydock@mmb.pdb.ub.es 1jvm:ad 3lzt:a" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/bin/Database/load_db.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -424,19 +477,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.patch_dock_read_mail" />
       <item itemvalue="Python.workflow_manager" />
       <item itemvalue="Python.pyDock_get_results" />
       <item itemvalue="Python.swarm_dock_get_results" />
       <item itemvalue="Python.KNN_Classifier_V2" />
+      <item itemvalue="Python.load_db" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.load_db" />
         <item itemvalue="Python.workflow_manager" />
         <item itemvalue="Python.KNN_Classifier_V2" />
         <item itemvalue="Python.pyDock_get_results" />
         <item itemvalue="Python.swarm_dock_get_results" />
-        <item itemvalue="Python.patch_dock_read_mail" />
       </list>
     </recent_temporary>
   </component>
@@ -471,23 +524,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.22365591" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32939914" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32903227" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22365591" />
+      <window_info anchor="bottom" id="Python Console" order="7" visible="true" weight="0.32903227" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32939914" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24420024" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21489622" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24969475" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39892474" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -499,27 +551,27 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24420024" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24420024" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24969475" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32939914" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22365591" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32903227" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39892474" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32903227" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32903227" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,24 +590,11 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/patch_dock_form_submit_crawler.py" />
     <entry file="file://$PROJECT_DIR$/venv/bin/read_mail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="46" selection-end-column="97" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -585,9 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="46" selection-end-column="97" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -597,9 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="46" selection-end-column="97" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -619,9 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="46" selection-end-column="97" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -641,9 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="46" selection-end-column="97" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -705,33 +732,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_form_submit_crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/read_mail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="853">
           <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/output/1JVM_3LZT.tar.gz">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-391" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/good_pairs.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_get_results.py">
@@ -741,68 +751,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/KNN_K_Fold_Classifier.py" />
+    <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_get_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_form_submit_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="12" selection-start-line="30" selection-end-line="30" selection-end-column="12" />
+        <state relative-caret-position="60">
+          <caret line="4" column="60" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="60" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/KNN_K_Fold_Classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="289" column="65" lean-forward="true" selection-start-line="289" selection-start-column="65" selection-end-line="289" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/Patch Dock/patch_dock_form_submit_crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_get_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="4" selection-start-line="19" selection-end-line="19" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="454" column="69" selection-start-line="454" selection-start-column="69" selection-end-line="454" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/KNN_Classifier_V2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-559">
-          <caret line="141" column="50" selection-start-line="141" selection-start-column="50" selection-end-line="141" selection-end-column="50" />
+        <state relative-caret-position="495">
+          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
           <folding>
             <element signature="e#51#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
+    <entry file="file://$PROJECT_DIR$/venv/bin/good_pairs.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/Patch Dock/patch_dock_get_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/Patch Dock/patch_dock_form_submit_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="70" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2205">
+          <caret line="147" column="37" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/Database/load_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2250">
+          <caret line="150" column="52" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
         </state>
       </provider>
     </entry>

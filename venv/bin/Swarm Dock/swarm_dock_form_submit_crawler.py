@@ -53,5 +53,3 @@ content_div = browser.find_element_by_id('content')
 print('content {}'.format(content_div.text))
 
 browser.quit()
-
-

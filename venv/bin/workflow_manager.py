@@ -10,7 +10,7 @@ import tarfile
 
 PROCESS_NAME_PATCH_DOCK = 'patch_dock'
 PATCH_DOCK_DIR = './Patch Dock'
-PATCH_DOCK_SCORES_DIR = PATCH_DOCK_DIR + '/scores'
+PATCH_DOCK_SCORES_DIR = PATCH_DOCK_DIR + '/output'
 PATCH_DOCK_START_FILE = PATCH_DOCK_DIR + '/patch_dock_form_submit_crawler.py'
 PATCH_DOCK_READ_MAIL_FILE = 'read_mail.py'
 PATCH_DOCK_GET_RESULTS_FILE = PATCH_DOCK_DIR + '/patch_dock_get_results.py'
@@ -145,7 +145,7 @@ def get_pydock_results_from_file(filename):
 
         line_num += 1
 
-    return results
+    return results.rstrip().split(' ')
 
 def run_patch_dock_start(receptor, ligand):
     patch_dock_start_process = subprocess.Popen(
