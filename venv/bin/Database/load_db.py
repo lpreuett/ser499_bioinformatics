@@ -8,15 +8,13 @@ SWARM_DOCK_DIR = '../Swarm Dock/'
 SWARM_DOCK_NAME = 'Swarm Dock'
 PYDOCK_NAME = 'pyDockWEB'
 PATCH_DOCK_NAME = 'Patch Dock'
+MOTHER_NATURE_NAME = 'Mother Nature'
 
 GOOD_PAIRS_FILE = '../good_pairs.txt'
 BAD_PAIRS_FILE = '../bad_pairs.txt'
 
 PROTEIN_IDENTIFIER = 'protein'
 RESULT_IDENTIFIER = 'result'
-
-pdb_entry_id = 1
-result_entry_id = 1
 
 debug = True
 
@@ -32,7 +30,11 @@ def does_pdb_chain_exist(pdb_id, chain, cursor):
     return False
 
 def insert_pdb(pdb_id, chain, cursor):
-    global pdb_entry_id
+    pdb_entry_id = cursor.execute('SELECT max(id) FROM Protein').fetchone()[0]
+    if pdb_entry_id == None:
+        pdb_entry_id = 1
+    else:
+        pdb_entry_id += 1
     # test for existence of pdb_id and chain pair
     if does_pdb_chain_exist(pdb_id, chain, cursor):
         return
@@ -51,9 +53,12 @@ def insert_pdb(pdb_id, chain, cursor):
     if debug:
         print('insert_sql: {}'.format(insert_sql))
     cursor.execute(insert_sql)
-    pdb_entry_id += 1
 
 def parse_pair_file(filepath, table):
+    if filepath == GOOD_PAIRS_FILE:
+        does_dock = True
+    else:
+        does_dock = False
     # connect to db
     conn = sqlite3.connect('./workflow.db')
     cursor = conn.cursor()
@@ -80,7 +85,7 @@ def parse_pair_file(filepath, table):
                 insert_pdb(receptor_pdb_id, receptor_chain, cursor)
                 insert_pdb(ligand_pdb_id, ligand_chain, cursor)
             elif table == RESULT_IDENTIFIER:
-                insert_result(receptor_pdb_id, ligand_pdb_id, cursor)
+                insert_result(receptor_pdb_id, ligand_pdb_id, does_dock, cursor)
     # save and close connection
     conn.commit()
     conn.close()
@@ -93,6 +98,8 @@ def does_result_exist(receptor_pdb_id, ligand_pdb_id, tool_name, cursor):
         num_results = 7
     elif tool_name == PYDOCK_NAME:
         num_results = 4
+    elif tool_name == MOTHER_NATURE_NAME:
+        num_results = 1
     # get tool id
     tool_id = cursor.execute('SELECT id FROM Tool WHERE name=:tool_name', {'tool_name': tool_name}).fetchone()[0]
     # get all the results
@@ -107,9 +114,13 @@ def does_result_exist(receptor_pdb_id, ligand_pdb_id, tool_name, cursor):
     else:
         return False
 
-def insert_result(receptor, ligand, cursor):
-    # include global variable
-    global result_entry_id
+def insert_result(receptor, ligand, does_dock, cursor):
+    result_entry_id = cursor.execute('SELECT max(id) FROM Result').fetchone()[0]
+    if result_entry_id == None:
+        result_entry_id = 1
+    else:
+        result_entry_id += 1
+
     feature_id = 1
     # build filename
     filename = '{}_{}.txt'.format(receptor.upper(), ligand.upper())
@@ -162,6 +173,20 @@ def insert_result(receptor, ligand, cursor):
                                                                                                   tool_id)
             cursor.execute(insert_sql)
             result_entry_id += 1
+
+    if not does_result_exist(receptor, ligand, MOTHER_NATURE_NAME, cursor):
+        if does_dock:
+            mother_nature_score = 1
+        else:
+            mother_nature_score = 0
+        feature_id = 1
+        # get tool id
+        tool_id = cursor.execute('SELECT id FROM Tool WHERE name=:tool_name', {'tool_name': MOTHER_NATURE_NAME}).fetchone()[0]
+        # insert score
+        insert_sql = 'INSERT INTO Result VALUES ' + "({}, \'{}\', \'{}\', {}, {}, {})".format(result_entry_id, receptor,
+                                                                                          ligand, feature_id, mother_nature_score,
+                                                                                          tool_id)
+        cursor.execute(insert_sql)
 
 def load_data(table):
     #try:

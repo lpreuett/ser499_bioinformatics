@@ -16,8 +16,6 @@ PATCH_DOCK_READ_MAIL_FILE = 'read_mail.py'
 PATCH_DOCK_GET_RESULTS_FILE = PATCH_DOCK_DIR + '/patch_dock_get_results.py'
 PATCH_DOCK_FROM_EMAIL = 'ppdock@tau.ac.il'
 
-
-
 SWARM_DOCK_DIR = './Swarm Dock'
 SWARM_DOCK_OUTPUT_DIR = SWARM_DOCK_DIR + '/output'
 PROCESS_NAME_SWARM_DOCK = 'swarm_dock'
