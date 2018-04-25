@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9463f41-7d77-4929-9962-cfb5317c9331" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/Database/workflow.db" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Database/workflow.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/good_pairs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/good_pairs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/workflow_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/workflow_manager.py" afterDir="false" />
-    </list>
+    <list default="true" id="b9463f41-7d77-4929-9962-cfb5317c9331" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +46,7 @@
       <file leaf-file-name="Naive_Bayes_Classifier.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
+            <state relative-caret-position="386">
               <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
               <folding>
                 <element signature="e#52#64#0" expanded="true" />
@@ -64,8 +58,8 @@
       <file leaf-file-name="workflow_inputs.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
+            <state relative-caret-position="75">
+              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -73,7 +67,7 @@
       <file leaf-file-name="workflow_manager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-81">
+            <state relative-caret-position="960">
               <caret line="187" column="57" selection-start-line="187" selection-start-column="57" selection-end-line="187" selection-end-column="57" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
@@ -222,8 +216,8 @@
         <option value="$PROJECT_DIR$/venv/bin/Database/load_db.py" />
         <option value="$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py" />
         <option value="$PROJECT_DIR$/venv/bin/workflow_manager.py" />
-        <option value="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" />
         <option value="$PROJECT_DIR$/venv/bin/good_pairs.txt" />
+        <option value="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" />
       </list>
     </option>
   </component>
@@ -458,9 +452,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32939914" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32903227" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22365591" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22365591" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32939914" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23443224" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23443224" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32967034" />
@@ -791,16 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
-          <folding>
-            <element signature="e#52#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/Database/load_db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -818,9 +802,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
+          <folding>
+            <element signature="e#52#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
+        <state relative-caret-position="960">
           <caret line="187" column="57" selection-start-line="187" selection-start-column="57" selection-end-line="187" selection-end-column="57" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
@@ -842,13 +843,6 @@
             <element signature="e#18621#18971#0" />
             <element signature="e#19016#20415#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
         </state>
       </provider>
     </entry>
