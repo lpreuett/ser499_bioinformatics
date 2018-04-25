@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b9463f41-7d77-4929-9962-cfb5317c9331" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/Database/load_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Database/load_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/bad_pairs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/bad_pairs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/Database/workflow.db" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Database/workflow.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/good_pairs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/good_pairs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/workflow_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/workflow_manager.py" afterDir="false" />
@@ -31,11 +28,11 @@
     <SUITE FILE_PATH="coverage/SER499_web_scraper$KNN_Classifier_V2__1_.coverage" NAME="KNN_Classifier_V2 (1) Coverage Results" MODIFIED="1524437871987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Classifiers" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$swarm_dock_form_submit_crawler__1_.coverage" NAME="swarm_dock_form_submit_crawler (1) Coverage Results" MODIFIED="1522732445927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Swarm Dock" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$KNN_Classifier_V2.coverage" NAME="KNN_Classifier_V2 Coverage Results" MODIFIED="1523416047989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$Naive_Bayes_Classifier.coverage" NAME="Naive_Bayes_Classifier Coverage Results" MODIFIED="1524544795523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Classifiers" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$Naive_Bayes_Classifier.coverage" NAME="Naive_Bayes_Classifier Coverage Results" MODIFIED="1524624431579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Classifiers" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$swarm_dock_form_submit_crawler.coverage" NAME="swarm_dock_form_submit_crawler Coverage Results" MODIFIED="1522003843296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$pyDock_form_submit.coverage" NAME="pyDock_form_submit Coverage Results" MODIFIED="1522185709070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/pyDockWEB" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$patch_dock_form_submit_crawler.coverage" NAME="patch_dock_form_submit_crawler Coverage Results" MODIFIED="1518499367515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$workflow_manager.coverage" NAME="workflow_manager Coverage Results" MODIFIED="1524618535260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$workflow_manager.coverage" NAME="workflow_manager Coverage Results" MODIFIED="1524632188183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$download_pdb.coverage" NAME="download_pdb Coverage Results" MODIFIED="1522732437024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Swarm Dock" />
   </component>
   <component name="FileEditorManager">
@@ -55,8 +52,8 @@
       <file leaf-file-name="Naive_Bayes_Classifier.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2715">
-              <caret line="186" selection-start-line="186" selection-end-line="186" />
+            <state relative-caret-position="1320">
+              <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
               <folding>
                 <element signature="e#52#64#0" expanded="true" />
               </folding>
@@ -67,23 +64,36 @@
       <file leaf-file-name="workflow_inputs.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state>
+              <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workflow_manager.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workflow_manager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1000">
-              <caret line="400" selection-start-line="400" selection-end-line="400" />
+            <state relative-caret-position="-81">
+              <caret line="187" column="57" selection-start-line="187" selection-start-column="57" selection-end-line="187" selection-end-column="57" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <element signature="e#10173#10870#0" />
-                <element signature="e#15141#15436#0" />
-                <element signature="e#15491#15865#0" />
-                <element signature="e#15886#17285#0" />
+                <element signature="e#1426#2664#0" />
+                <element signature="e#2951#3516#0" />
+                <element signature="e#3562#4270#0" />
+                <element signature="e#4324#4711#0" />
+                <element signature="e#5447#6083#0" />
+                <element signature="e#6133#6857#0" />
+                <element signature="e#6897#7277#0" />
+                <element signature="e#9572#10140#0" />
+                <element signature="e#10172#10869#0" />
+                <element signature="e#10919#11643#0" />
+                <element signature="e#11701#12100#0" />
+                <element signature="e#15553#16597#0" />
+                <element signature="e#16636#17724#0" />
+                <element signature="e#17762#17971#0" />
+                <element signature="e#18012#18566#0" />
+                <element signature="e#18621#18971#0" />
+                <element signature="e#19016#20415#0" />
               </folding>
             </state>
           </provider>
@@ -92,17 +102,17 @@
       <file leaf-file-name="bad_pairs.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            <state>
+              <caret selection-end-line="2" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="good_pairs.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="good_pairs.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/bin/good_pairs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="4" selection-start-line="1" selection-end-line="1" selection-end-column="4" />
+            <state relative-caret-position="105">
+              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -110,8 +120,8 @@
       <file leaf-file-name="load_db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/Database/load_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="54" column="30" selection-start-line="31" selection-end-line="54" selection-end-column="30" />
+            <state relative-caret-position="315">
+              <caret line="22" column="98" selection-start-line="22" selection-start-column="98" selection-end-line="22" selection-end-column="98" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -208,12 +218,12 @@
         <option value="$PROJECT_DIR$/venv/bin/KNN_Classifier_V2.py" />
         <option value="$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_form_submit_crawler.py" />
         <option value="$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py" />
-        <option value="$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py" />
-        <option value="$PROJECT_DIR$/venv/bin/good_pairs.txt" />
         <option value="$PROJECT_DIR$/venv/bin/bad_pairs.txt" />
         <option value="$PROJECT_DIR$/venv/bin/Database/load_db.py" />
-        <option value="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" />
+        <option value="$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py" />
         <option value="$PROJECT_DIR$/venv/bin/workflow_manager.py" />
+        <option value="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" />
+        <option value="$PROJECT_DIR$/venv/bin/good_pairs.txt" />
       </list>
     </option>
   </component>
@@ -225,7 +235,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="width" value="840" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -266,28 +276,6 @@
               <item name="venv" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
               <item name="Database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SER499_web_scraper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SER499_web_scraper" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="pyDockWEB" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SER499_web_scraper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SER499_web_scraper" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="Swarm Dock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SER499_web_scraper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SER499_web_scraper" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="Swarm Dock" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -470,9 +458,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32939914" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32903227" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22365591" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22365591" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32939914" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23443224" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23443224" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32967034" />
@@ -492,25 +480,25 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21978022" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24969475" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32939914" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22365591" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="9" visible="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39892474" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32903227" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="9" visible="true" weight="0.32903227" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +520,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -550,10 +538,23 @@
           <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#10173#10870#0" />
-            <element signature="e#15141#15436#0" />
-            <element signature="e#15491#15865#0" />
-            <element signature="e#15886#17285#0" />
+            <element signature="e#1426#2664#0" />
+            <element signature="e#2951#3516#0" />
+            <element signature="e#3562#4270#0" />
+            <element signature="e#4324#4711#0" />
+            <element signature="e#5447#6083#0" />
+            <element signature="e#6133#6857#0" />
+            <element signature="e#6897#7277#0" />
+            <element signature="e#9572#10140#0" />
+            <element signature="e#10172#10869#0" />
+            <element signature="e#10919#11643#0" />
+            <element signature="e#11701#12100#0" />
+            <element signature="e#15553#16597#0" />
+            <element signature="e#16636#17724#0" />
+            <element signature="e#17762#17971#0" />
+            <element signature="e#18012#18566#0" />
+            <element signature="e#18621#18971#0" />
+            <element signature="e#19016#20415#0" />
           </folding>
         </state>
       </provider>
@@ -581,10 +582,23 @@
           <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#10173#10870#0" />
-            <element signature="e#15141#15436#0" />
-            <element signature="e#15491#15865#0" />
-            <element signature="e#15886#17285#0" />
+            <element signature="e#1426#2664#0" />
+            <element signature="e#2951#3516#0" />
+            <element signature="e#3562#4270#0" />
+            <element signature="e#4324#4711#0" />
+            <element signature="e#5447#6083#0" />
+            <element signature="e#6133#6857#0" />
+            <element signature="e#6897#7277#0" />
+            <element signature="e#9572#10140#0" />
+            <element signature="e#10172#10869#0" />
+            <element signature="e#10919#11643#0" />
+            <element signature="e#11701#12100#0" />
+            <element signature="e#15553#16597#0" />
+            <element signature="e#16636#17724#0" />
+            <element signature="e#17762#17971#0" />
+            <element signature="e#18012#18566#0" />
+            <element signature="e#18621#18971#0" />
+            <element signature="e#19016#20415#0" />
           </folding>
         </state>
       </provider>
@@ -604,10 +618,23 @@
           <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#10173#10870#0" />
-            <element signature="e#15141#15436#0" />
-            <element signature="e#15491#15865#0" />
-            <element signature="e#15886#17285#0" />
+            <element signature="e#1426#2664#0" />
+            <element signature="e#2951#3516#0" />
+            <element signature="e#3562#4270#0" />
+            <element signature="e#4324#4711#0" />
+            <element signature="e#5447#6083#0" />
+            <element signature="e#6133#6857#0" />
+            <element signature="e#6897#7277#0" />
+            <element signature="e#9572#10140#0" />
+            <element signature="e#10172#10869#0" />
+            <element signature="e#10919#11643#0" />
+            <element signature="e#11701#12100#0" />
+            <element signature="e#15553#16597#0" />
+            <element signature="e#16636#17724#0" />
+            <element signature="e#17762#17971#0" />
+            <element signature="e#18012#18566#0" />
+            <element signature="e#18621#18971#0" />
+            <element signature="e#19016#20415#0" />
           </folding>
         </state>
       </provider>
@@ -626,10 +653,23 @@
           <caret line="36" column="37" lean-forward="true" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#10173#10870#0" />
-            <element signature="e#15141#15436#0" />
-            <element signature="e#15491#15865#0" />
-            <element signature="e#15886#17285#0" />
+            <element signature="e#1426#2664#0" />
+            <element signature="e#2951#3516#0" />
+            <element signature="e#3562#4270#0" />
+            <element signature="e#4324#4711#0" />
+            <element signature="e#5447#6083#0" />
+            <element signature="e#6133#6857#0" />
+            <element signature="e#6897#7277#0" />
+            <element signature="e#9572#10140#0" />
+            <element signature="e#10172#10869#0" />
+            <element signature="e#10919#11643#0" />
+            <element signature="e#11701#12100#0" />
+            <element signature="e#15553#16597#0" />
+            <element signature="e#16636#17724#0" />
+            <element signature="e#17762#17971#0" />
+            <element signature="e#18012#18566#0" />
+            <element signature="e#18621#18971#0" />
+            <element signature="e#19016#20415#0" />
           </folding>
         </state>
       </provider>
@@ -753,56 +793,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2715">
-          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        <state relative-caret-position="1320">
+          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
           <folding>
             <element signature="e#52#64#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/good_pairs.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="4" selection-start-line="1" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/Database/load_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="54" column="30" selection-start-line="31" selection-end-line="54" selection-end-column="30" />
+        <state relative-caret-position="315">
+          <caret line="22" column="98" selection-start-line="22" selection-start-column="98" selection-end-line="22" selection-end-column="98" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
+    <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state>
+          <caret selection-end-line="2" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="400" selection-start-line="400" selection-end-line="400" />
+        <state relative-caret-position="-81">
+          <caret line="187" column="57" selection-start-line="187" selection-start-column="57" selection-end-line="187" selection-end-column="57" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#10173#10870#0" />
-            <element signature="e#15141#15436#0" />
-            <element signature="e#15491#15865#0" />
-            <element signature="e#15886#17285#0" />
+            <element signature="e#1426#2664#0" />
+            <element signature="e#2951#3516#0" />
+            <element signature="e#3562#4270#0" />
+            <element signature="e#4324#4711#0" />
+            <element signature="e#5447#6083#0" />
+            <element signature="e#6133#6857#0" />
+            <element signature="e#6897#7277#0" />
+            <element signature="e#9572#10140#0" />
+            <element signature="e#10172#10869#0" />
+            <element signature="e#10919#11643#0" />
+            <element signature="e#11701#12100#0" />
+            <element signature="e#15553#16597#0" />
+            <element signature="e#16636#17724#0" />
+            <element signature="e#17762#17971#0" />
+            <element signature="e#18012#18566#0" />
+            <element signature="e#18621#18971#0" />
+            <element signature="e#19016#20415#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/good_pairs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
         </state>
       </provider>
     </entry>

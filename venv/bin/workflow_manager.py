@@ -42,20 +42,28 @@ OUTPUT_DIR = './workflow_output'
 MAX_NUM_WORKFLOW_PROCESSES = 1
 
 def start_pydock_workflow(receptor_id, ligand_id, output):
-    print('Receptor: {} Ligand: {}'.format(receptor_id, ligand_id))
+    tool_id = 2
+    new_results = False
     # check for stored results
-    filename = receptor_id.split(':')[0].upper() + '_' + ligand_id.split(':')[0].upper() + '.tar.gz'
-    if os.path.isdir(PYDOCK_OUTPUT_DIR) and os.path.isfile(PYDOCK_OUTPUT_DIR + '/' + filename):
-        pydock_score = get_pydock_results_from_file(filename)
+    rec = receptor_id.split(':')[0]
+    lig = ligand_id.split(':')[0]
+    if results_exist(rec, lig, tool_id):
+        pydock_score = get_results(rec, lig, tool_id)
     else:
+        new_results = True
         # check mailbox for results first
         try:
             link = read_pydock_mail(receptor_id, ligand_id)
             received_pydock_msg = True
         except:
             # submit job to Patch Dock
-            run_pydock_start(receptor_id, ligand_id)
-            received_pydock_msg = False
+            try:
+                run_pydock_start(receptor_id, ligand_id)
+                received_pydock_msg = False
+            except:
+                print('Error submitting pydock job')
+                sys.exit(1)
+
         # get response from Patch Dock
         first_itr = True
         while (not received_pydock_msg):
@@ -74,6 +82,8 @@ def start_pydock_workflow(receptor_id, ligand_id, output):
                 print('No response from PyDock.')
 
         pydock_score = get_pydock_results(link, receptor_id, ligand_id)
+        if new_results:
+            insert_results(rec, lig, tool_id, pydock_score)
 
     print('PyDock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, pydock_score))
     output.put((PROCESS_NAME_PYDOCK, receptor_id, ligand_id, pydock_score))
@@ -124,30 +134,6 @@ def get_pydock_results(link, receptor, ligand):
 
     return results
 
-def get_pydock_results_from_file(filename):
-    # extract .tar.gz
-    tar = tarfile.open(PYDOCK_OUTPUT_DIR + '/' + filename)
-    tar_members = tar.getmembers()
-    RESULTS_FILE = None
-    for m in tar_members:
-        if re.search('\w+\.ene', m.name):
-            RESULTS_FILE = m.name
-    results_file = tar.extractfile(RESULTS_FILE)
-
-    results = None
-    line_num = 0
-    for line in results_file:
-        if line_num == 2:
-            # top result
-            decoded_line = line.decode('utf-8')
-            outputs = re.findall('(-?\d+\.\d+)', decoded_line)
-            results = ' '.join(outputs)
-            break
-
-        line_num += 1
-
-    return results.rstrip().split(' ')
-
 def run_patch_dock_start(receptor, ligand):
     patch_dock_start_process = subprocess.Popen(
             ['scrapy', 'runspider', PATCH_DOCK_START_FILE, '-a', 'receptor='+receptor, '-a', 'ligand='+ligand],
@@ -192,44 +178,38 @@ def get_patch_dock_results(link):
 
     return int(re.search(r'\d+', str(stdout)).group())
 
-def get_patch_dock_results_from_file(filename):
-    with open(PATCH_DOCK_SCORES_DIR + '/' + filename, 'r') as file:
-        line = file.readline()
-    return line
-
-def patch_dock_save_score(receptor_id, ligand_id, score):
-    if not os.path.isdir(PATCH_DOCK_DIR):
-        os.mkdir(PATCH_DOCK_DIR)
-    if not os.path.isdir(PATCH_DOCK_SCORES_DIR):
-        os.mkdir(PATCH_DOCK_SCORES_DIR)
-
-    filename = receptor_id.split(':')[0].upper() + '_' + ligand_id.split(':')[0].upper() + '.txt'
-    with open(PATCH_DOCK_SCORES_DIR + '/' + filename, 'w') as file:
-        file.write(str(score))
-
 def start_patch_dock_workflow(receptor_id, ligand_id, output):
-    print('Receptor: {} Ligand: {}'.format(receptor_id, ligand_id))
+    tool_id = 1
+    new_results = False
     # check for stored results
-    filename = receptor_id.split(':')[0].upper() + '_' + ligand_id.split(':')[0].upper() + '.txt'
-    if os.path.isdir(PATCH_DOCK_SCORES_DIR) and os.path.isfile(PATCH_DOCK_SCORES_DIR + '/' + filename):
-        patch_dock_score = get_patch_dock_results_from_file(filename)
+    rec = receptor_id.split(':')[0]
+    lig = ligand_id.split(':')[0]
+    if results_exist(rec, lig, tool_id):
+        patch_dock_score = get_results(rec, lig, tool_id)
     else:
+        new_results = True
         # check mailbox for results first
         try:
             link = read_patch_dock_mail(receptor_id, ligand_id)
             received_patch_dock_msg = True
         except:
             # submit job to Patch Dock
-            run_patch_dock_start(receptor_id, ligand_id)
-            received_patch_dock_msg = False
+            try:
+                run_patch_dock_start(receptor_id, ligand_id)
+                received_patch_dock_msg = False
+            except:
+                print('Error submitted Patch Dock job')
+                sys.exit(1)
+
         # get response from Patch Dock
-        iteration = 0
+        first_itr = True
         while (not received_patch_dock_msg):
-            if iteration == 0:
-                print('Waiting 30 minutes...')
+            if first_itr:
+                print('Patch Dock: Waiting 30 minutes...')
                 time.sleep(1800)  # 30 minute wait
+                first_itr = False
             else:
-                print('Waiting 5 minutes...')
+                print('Patch Dock: Waiting 5 minutes...')
                 time.sleep(300)
 
             try:
@@ -238,10 +218,9 @@ def start_patch_dock_workflow(receptor_id, ligand_id, output):
             except:
                 print('No response from Patch Dock.')
 
-            iteration += 1
-
         patch_dock_score = get_patch_dock_results(link)
-        patch_dock_save_score(receptor_id, ligand_id, patch_dock_score)
+        if new_results:
+            insert_results(rec, lig, tool_id, [patch_dock_score])
 
     print('Patch Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, patch_dock_score))
     output.put((PROCESS_NAME_PATCH_DOCK, receptor_id, ligand_id, patch_dock_score))
@@ -313,49 +292,22 @@ def get_swarm_dock_results(link, receptor, ligand):
 
     return results
 
-def get_swarm_dock_results_from_file(filename):
-    RESULTS_FILENAME = 'sds/clusters_standard.txt'
-    # extract .tar.gz
-    tar = tarfile.open(SWARM_DOCK_OUTPUT_DIR + '/' + filename)
-    results_file = tar.extractfile(RESULTS_FILENAME)
-
-    results = None
-    is_first_line = True
-    for line in results_file:
-        if is_first_line:
-            is_first_line = False
-            continue
-        # select first result with 3 or less members
-        # decode line
-        decoded_line = line.decode('utf8')
-        # count number of members
-        members_start = decoded_line.find('[')
-        members_finish = decoded_line.find(']')
-        members = decoded_line[members_start + 1:members_finish].split('|')
-        if len(members) <= 3:
-            results = decoded_line.split(' ')
-            results = results[1:3] + results[4:]
-            results = ' '.join(results)
-            break
-    # returns array of scores
-    return results.rstrip().split(' ')
-
 def start_swarm_dock_workflow(receptor_id, ligand_id, output):
-    print('Receptor: {} Ligand: {}'.format(receptor_id, ligand_id))
+    tool_id = 3
+    new_results = False
     # check if results are stored
-    filename = receptor_id.split(':')[0].upper() + '_' + ligand_id.split(':')[0].upper() + '.tar.gz'
-    if os.path.isdir(SWARM_DOCK_OUTPUT_DIR) and os.path.isfile(SWARM_DOCK_OUTPUT_DIR + '/' + filename):
-        swarm_dock_score = get_swarm_dock_results_from_file(filename)
+    rec = receptor_id.split(':')[0]
+    lig = ligand_id.split(':')[0]
+    if results_exist(rec, lig, tool_id):
+        swarm_dock_score = get_results(rec, lig, tool_id)
     else:
         received_swarm_dock_msg = False
+        new_results = True
         # check mailbox for results first
         try:
             link = read_swarm_dock_mail(receptor_id, ligand_id)
             received_swarm_dock_msg = True
         except:
-            # download pdbs
-            download_pdb(receptor_id)
-            download_pdb(ligand_id)
             # submit job to Patch Dock
             try:
                 run_swarm_dock_start(receptor_id, ligand_id)
@@ -364,13 +316,14 @@ def start_swarm_dock_workflow(receptor_id, ligand_id, output):
                 sys.exit(1)
 
         # get response from Swarm Dock
-        iteration = 0
+        first_itr = True
         while (not received_swarm_dock_msg):
-            if iteration == 0:
-                print('Waiting 30 minutes...')
+            if first_itr:
+                print('Swarm Dock: Waiting 30 minutes...')
                 time.sleep(1800)  # 30 minute wait
+                first_itr = False
             else:
-                print('Waiting 10 minutes...')
+                print('Swarm Dock: Waiting 10 minutes...')
                 time.sleep(300)
 
             try:
@@ -379,9 +332,9 @@ def start_swarm_dock_workflow(receptor_id, ligand_id, output):
             except:
                 print('No response from Swarm Dock.')
 
-            iteration += 1
-
         swarm_dock_score = get_swarm_dock_results(link, receptor_id, ligand_id)
+        if new_results:
+            insert_results(rec, lig, tool_id, swarm_dock_score)
 
     print('Swarm Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, swarm_dock_score))
     output.put((PROCESS_NAME_SWARM_DOCK, receptor_id, ligand_id, float(swarm_dock_score[0]), int(swarm_dock_score[1]), int(swarm_dock_score[2]),
@@ -397,6 +350,94 @@ def write_output(results):
             writer = csv.writer(csvfile, delimiter=' ')
             writer.writerow(r)
 
+def insert_results(rec, lig, tool, output):
+    # very output
+    expected_results = get_expected_results(tool)
+    if len(output) != expected_results:
+        raise Exception('Insert Results: Invalid output dimension for tool: {}\nrec: {} lig: {} output: {}'.format(tool, rec, lig, output))
+    # create connection to db
+    conn = sqlite3.connect('{}/{}'.format(DB_DIR, DB_FILENAME))
+    # get db cursor
+    cursor = conn.cursor()
+    # build query
+    query = 'SELECT max(feature_id) FROM Result WHERE rec_pdb_id=:rec AND lig_pdb_id=:lig AND tool_id=:tool'
+    dictionary = { 'rec': rec, 'lig': lig, 'tool': tool }
+    results = cursor.execute(query, dictionary).fetchone()
+    feature_id = results[0]
+    if feature_id is None:
+        feature_id = 1
+    else:
+        feature_id += 1
+
+    for score in output:
+        query = 'INSERT INTO Result(\'rec_pdb_id\', \'lig_pdb_id\', \'feature_id\', \'feature_value\', \'tool_id\') VALUES ' \
+            '(\'{}\', \'{}\', {}, {}, {})'.format(rec, lig, feature_id, score, tool)
+        cursor.execute(query)
+
+    conn.commit()
+    conn.close()
+
+def get_results(rec, lig, tool):
+    # create connection to db
+    conn = sqlite3.connect('{}/{}'.format(DB_DIR, DB_FILENAME))
+    # get db cursor
+    cursor = conn.cursor()
+    expected_results = get_expected_results(tool)
+
+    # get largest feature id
+    query = 'SELECT max(feature_id) FROM Result WHERE rec_pdb_id=:rec AND lig_pdb_id=:lig AND tool_id=:tool'
+    dictionary = {'rec': rec, 'lig': lig, 'tool': tool}
+    results = cursor.execute(query, dictionary).fetchall()
+    feature_id = results[0][0]
+    if feature_id is None:
+        conn.close()
+        return None
+
+    while feature_id >= 1:
+        # build query
+        query = 'SELECT feature_value FROM Result WHERE rec_pdb_id=:rec AND lig_pdb_id=:lig AND tool_id=:tool AND feature_id=:feature_id'
+        dictionary = {'rec': rec, 'lig': lig, 'tool': tool, 'feature_id': feature_id}
+        # get results
+        results = cursor.execute(query, dictionary).fetchall()
+
+        if len(results) == expected_results:
+            conn.close()
+            return [i[0] for i in results]
+        else:
+            feature_id -= 1
+
+    conn.close()
+    return None
+
+def get_expected_results(tool):
+    # set expected results
+    if tool == 1 or tool == 4:
+        expected_results = 1
+    elif tool == 2:
+        expected_results = 4
+    elif tool == 3:
+        expected_results = 7
+
+    return expected_results
+
+def results_exist(rec, lig, tool):
+    # create connection to db
+    conn = sqlite3.connect('{}/{}'.format(DB_DIR, DB_FILENAME))
+    # get db cursor
+    cursor = conn.cursor()
+    # build query
+    query = 'SELECT * FROM Result WHERE rec_pdb_id=:rec AND lig_pdb_id=:lig AND tool_id=:tool'
+    dictionary = { 'rec': rec, 'lig': lig, 'tool': tool}
+    # get results
+    results = cursor.execute(query, dictionary).fetchall()
+
+    # set expected results
+    expected_results = get_expected_results(tool)
+
+    if len(results) >= expected_results:
+        return True
+    else:
+        return False
 
 def does_pdb_chain_exist(pdb_id, chain, cursor):
     # test for existence of pdb_id and chain
@@ -476,10 +517,8 @@ for pair in rec_lig_pairs:
         lig_chain = lig_split[1]
     else:
         lig_chain = None
-    if not does_pdb_chain_exist(rec, rec_chain, cursor):
-        db_insert_pdb(rec, rec_chain, cursor)
-    if not does_pdb_chain_exist(lig, lig_chain, cursor):
-        db_insert_pdb(lig, lig_chain, cursor)
+    insert_pdb(rec, rec_chain, cursor)
+    insert_pdb(lig, lig_chain, cursor)
 
 # save changes to db
 conn.commit()
