@@ -30,22 +30,22 @@ def does_pdb_chain_exist(pdb_id, chain, cursor):
     return False
 
 def insert_pdb(pdb_id, chain, cursor):
+    # test for existence of pdb_id and chain pair
+    if does_pdb_chain_exist(pdb_id, chain, cursor):
+        return
     pdb_entry_id = cursor.execute('SELECT max(id) FROM Protein').fetchone()[0]
     if pdb_entry_id == None:
         pdb_entry_id = 1
     else:
         pdb_entry_id += 1
-    # test for existence of pdb_id and chain pair
-    if does_pdb_chain_exist(pdb_id, chain, cursor):
-        return
     filename = pdb_id.upper() + '.pdb'
     file_path = SWARM_DOCK_DIR + 'pdb/' + filename
     f_stat = os.stat(file_path)
     date = datetime.fromtimestamp(f_stat.st_birthtime).date()
     if chain == None:
         insert_sql = 'INSERT INTO Protein VALUES ' + "({}, \'{}\', {}, \'{}\', \'{}\')".format(pdb_entry_id, pdb_id,
-                                                                                                   chain, filename,
-                                                                                                   date)
+                                                                                               chain, filename,
+                                                                                               date)
     else:
         insert_sql = 'INSERT INTO Protein VALUES ' + "({}, \'{}\', \'{}\', \'{}\', \'{}\')".format(pdb_entry_id, pdb_id,
                                                                                                    chain, filename,

@@ -14,12 +14,12 @@ class KNN_Classifier:
 
     # USE ODD VALUES FOR K
     def __init__(self, knn_k=1):
-        self.__GOOD_PAIRS_FILE = 'good_pairs.txt'
-        self.__BAD_PAIRS_FILE = 'bad_pairs.txt'
+        self.__GOOD_PAIRS_FILE = '../good_pairs.txt'
+        self.__BAD_PAIRS_FILE = '../bad_pairs.txt'
         self.__data = []
-        self.PATCH_DOCK_OUTPUT_DIR = './Patch Dock/scores'
-        self.PYDOCK_OUTPUT_DIR = './pyDockWEB/output'
-        self.SWARM_DOCK_OUTPUT_DIR = './Swarm Dock/output'
+        self.PATCH_DOCK_OUTPUT_DIR = '../Patch Dock/output'
+        self.PYDOCK_OUTPUT_DIR = '../pyDockWEB/output'
+        self.SWARM_DOCK_OUTPUT_DIR = '../Swarm Dock/output'
         self.__debug = True
 
         if knn_k > 0:
@@ -59,12 +59,14 @@ class KNN_Classifier:
                 patch_dock_score = self.__get_patch_dock_score(filename+'.txt')
                 swarm_dock_score = self.__get_swarm_dock_score(filename+'.tar.gz')
                 pydock_score = self.__get_pydock_score(filename+'.tar.gz')
+                print('scores: {} {} {}'.format(patch_dock_score, swarm_dock_score, pydock_score))
                 if pair[2] == 'y':
                     value = 1
                 else:
                     value = 0
                 score = [patch_dock_score] + swarm_dock_score + pydock_score + [value]
-                print('Score: {}'.format(score))
+                if self.__debug:
+                    print('Score: {}'.format(score))
                 self.__data.append(score)
 
         # convert data lists to numpy arrays
@@ -75,7 +77,8 @@ class KNN_Classifier:
         #convert array of strings into array of ints
         self.__data = self.__data.astype(float)
 
-        print(self.__data)
+        if self.__debug:
+            print('data: {}'.format(self.__data))
 
     def __get_pydock_score(self, filename):
         # extract .tar.gz

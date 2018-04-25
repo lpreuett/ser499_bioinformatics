@@ -7,6 +7,7 @@ import multiprocessing as mp
 import csv
 import os
 import tarfile
+import sqlite3
 
 PROCESS_NAME_PATCH_DOCK = 'patch_dock'
 PATCH_DOCK_DIR = './Patch Dock'
@@ -33,6 +34,9 @@ PYDOCK_START_FILE = PYDOCK_DIR + '/pyDock_form_submit.py'
 PYDOCK_GET_RESULTS_FILE = PYDOCK_DIR + '/pyDock_get_results.py'
 PYDOCK_FROM_EMAIL = 'pydock@mmb.pdb.ub.es'
 
+DB_DIR = './Database'
+DB_FILENAME = 'workflow.db'
+
 OUTPUT_DIR = './workflow_output'
 
 MAX_NUM_WORKFLOW_PROCESSES = 1
@@ -53,11 +57,12 @@ def start_pydock_workflow(receptor_id, ligand_id, output):
             run_pydock_start(receptor_id, ligand_id)
             received_pydock_msg = False
         # get response from Patch Dock
-        iteration = 0
+        first_itr = True
         while (not received_pydock_msg):
-            if iteration == 0:
+            if first_itr:
                 print('Waiting 30 minutes...')
                 time.sleep(1800)  # 30 minute wait
+                first_itr = False
             else:
                 print('Waiting 5 minutes...')
                 time.sleep(300)
@@ -67,8 +72,6 @@ def start_pydock_workflow(receptor_id, ligand_id, output):
                 received_py_dock_msg = True
             except:
                 print('No response from PyDock.')
-
-            iteration += 1
 
         pydock_score = get_pydock_results(link, receptor_id, ligand_id)
 
@@ -394,6 +397,47 @@ def write_output(results):
             writer = csv.writer(csvfile, delimiter=' ')
             writer.writerow(r)
 
+
+def does_pdb_chain_exist(pdb_id, chain, cursor):
+    # test for existence of pdb_id and chain
+    results = cursor.execute('SELECT chain FROM Protein WHERE pdb_id=:pdb_id', {'pdb_id': pdb_id})
+
+    for result in results.fetchall():
+        if result != None and chain == result[0]:
+            # pdb_id and chain pair already exists
+            return True
+    # The pair does not exist
+    return False
+
+def insert_pdb(pdb_id, chain, cursor):
+    # test for existence of pdb_id and chain pair
+    if does_pdb_chain_exist(pdb_id, chain, cursor):
+        return
+    pdb_entry_id = cursor.execute('SELECT max(id) FROM Protein').fetchone()[0]
+    if pdb_entry_id == None:
+        pdb_entry_id = 1
+    else:
+        pdb_entry_id += 1
+    filename = pdb_id.upper() + '.pdb'
+    file_path = SWARM_DOCK_DIR + 'pdb/' + filename
+    # verify file exists
+    if not os.path.isfile(file_path):
+        # download if file does not exist
+        download_pdb(pdb_id)
+    f_stat = os.stat(file_path)
+    date = datetime.fromtimestamp(f_stat.st_birthtime).date()
+    if chain == None:
+        insert_sql = 'INSERT INTO Protein VALUES ' + "({}, \'{}\', {}, \'{}\', \'{}\')".format(pdb_entry_id, pdb_id,
+                                                                                               chain, filename,
+                                                                                               date)
+    else:
+        insert_sql = 'INSERT INTO Protein VALUES ' + "({}, \'{}\', \'{}\', \'{}\', \'{}\')".format(pdb_entry_id, pdb_id,
+                                                                                                   chain, filename,
+                                                                                                   date)
+    if debug:
+        print('insert_sql: {}'.format(insert_sql))
+    cursor.execute(insert_sql)
+
 output = mp.Queue()
 
 try:
@@ -412,6 +456,34 @@ try:
 except:
     print('Unable to process file: {}'.format(sys.argv[1]))
     sys.exit(1)
+
+# create connection to db
+conn = sqlite3.connect('{}/{}'.format(DB_DIR, DB_FILENAME))
+# get db cursor
+cursor = conn.cursor()
+
+# insert pdbs into db
+for pair in rec_lig_pairs:
+    rec_split = pair[0].split(':')
+    rec = rec_split[0]
+    if len(rec_split) > 1:
+        rec_chain = pair[0].split(':')[1]
+    else:
+        rec_chain = None
+    lig_split = pair[1].split(':')
+    lig = lig_split[0]
+    if len(lig_split) > 1:
+        lig_chain = lig_split[1]
+    else:
+        lig_chain = None
+    if not does_pdb_chain_exist(rec, rec_chain, cursor):
+        db_insert_pdb(rec, rec_chain, cursor)
+    if not does_pdb_chain_exist(lig, lig_chain, cursor):
+        db_insert_pdb(lig, lig_chain, cursor)
+
+# save changes to db
+conn.commit()
+conn.close()
 
 # create processes
 patch_dock_processes = [mp.Process(target=start_patch_dock_workflow, args=(pair[0], pair[1], output)) for pair in rec_lig_pairs]
@@ -455,3 +527,5 @@ write_output(patch_dock_results + swarm_dock_results + pydock_results)
 print('Patch Dock Results: {}'.format(patch_dock_results))
 print('Swarm Dock Results: {}'.format(swarm_dock_results))
 print('PyDock Results: {}'.format(pydock_results))
+
+print('Concatenated Results: {}'.format(patch_dock_results + swarm_dock_results + pydock_results))

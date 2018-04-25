@@ -4,12 +4,12 @@
 3m1n:a 3f5v:a // data collected
 3f74:a 1f45:ab // data collected
 2vpf:gh 1bv1 // data collected
-1aly:abc 1d7p:m 
-1jvm:abcd 1ppi 
-7nn9 1kdc 
-1hrp:ab 1poh 
-1ba7:b 1a19:b 
-1tfh:a 3lzt
+1aly:abc 1d7p:m // data collected
+1jvm:abcd 1ppi // data collected
+7nn9 1kdc // data collected
+1hrp:ab 1poh // data collected
+1ba7:b 1a19:b // data collected
+1tfh:a 3lzt // data collected
 3eed:ab 966c:a // data collected
 3hmw:lh 3mxv:lh // data collected
 1nca:hl 1nsn:hl // data collected

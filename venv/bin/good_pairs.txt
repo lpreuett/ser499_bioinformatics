@@ -1,10 +1,10 @@
-1pig 1hoe
-1ccp 1ycc
-1sup 3ssi
-1bec 1se4
-1fgn:lh 1tfh:a
-1bvl:ba 3lzt
-1dqq:cd 3lzt
+1pig 1hoe // data collected
+1ccp 1ycc // data collected
+1sup 3ssi // data collected
+1bec 1se4 // data collected
+1fgn:lh 1tfh:a // data collected
+1bvl:ba 3lzt // data collected
+1dqq:cd 3lzt // data collected
 1e6O:hl 1a43
 1jpt:hl 1tfh:b
 3hmw:lh 1f45:ab
