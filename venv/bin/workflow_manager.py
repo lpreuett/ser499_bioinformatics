@@ -8,6 +8,12 @@ import csv
 import os
 import tarfile
 import sqlite3
+import importlib.util
+
+# import Classifier
+knn_classifier_spec = importlib.util.spec_from_file_location('KNN_Classifier', './Classifiers/KNN_Classifier_V2.py')
+knn_classifier = importlib.util.module_from_spec(knn_classifier_spec)
+knn_classifier_spec.loader.exec_module(knn_classifier)
 
 PROCESS_NAME_PATCH_DOCK = 'patch_dock'
 PATCH_DOCK_DIR = './Patch Dock'
@@ -41,6 +47,8 @@ OUTPUT_DIR = './workflow_output'
 
 MAX_NUM_WORKFLOW_PROCESSES = 1
 
+debug = False
+
 def start_pydock_workflow(receptor_id, ligand_id, output):
     tool_id = 2
     new_results = False
@@ -57,13 +65,16 @@ def start_pydock_workflow(receptor_id, ligand_id, output):
             received_pydock_msg = True
         except:
             # submit job to Patch Dock
-            try:
-                run_pydock_start(receptor_id, ligand_id)
-                received_pydock_msg = False
-            except:
+            attempts = 0
+            while not run_pydock_start(receptor_id, ligand_id) and attempts < 3:
+                attempts += 1
+
+            if attempts == 3:
                 print('Error submitting pydock job')
                 sys.exit(1)
-
+            else:
+                print('Successfully submitted PyDock job.')
+            received_pydock_msg = False
         # get response from Patch Dock
         first_itr = True
         while (not received_pydock_msg):
@@ -96,13 +107,15 @@ def run_pydock_start(receptor, ligand):
     communicateRes = pydock_start_process.communicate()
     stdout, stderr = communicateRes
 
-    print('initial web scraper stdout: {} \n initial web scraper stderr: {}'.format(stdout, stderr))
+    if debug:
+        print('initial web scraper stdout: {} \n initial web scraper stderr: {}'.format(stdout, stderr))
 
-    if ' line ' not in str(stderr):
-        print('Successfully submitted PyDock job.')
+    if ' line ' not in str(stderr) and 'job submitted' in str(stdout):
+        return True
     else:
-        print('Error in run_pydock_start: {}'.format(stderr))
-        raise Exception('run_pydock_start')
+        if debug:
+            print('Error in run_pydock_start: {}'.format(stderr))
+        return False
 
 def read_pydock_mail(receptor, ligand):
     read_pydock_process = subprocess.Popen(['python', PYDOCK_READ_MAIL_FILE, PYDOCK_FROM_EMAIL, \
@@ -110,14 +123,16 @@ def read_pydock_mail(receptor, ligand):
     communicateRes = read_pydock_process.communicate()
     stdout, stderr = communicateRes
 
-    print('read mail stdout: {}'.format(stdout))
-    print('read mail stderr: {}'.format(stderr))
+    if debug:
+        print('read mail stdout: {}'.format(stdout))
+        print('read mail stderr: {}'.format(stderr))
 
     # re source: https://stackoverflow.com/questions/9760588/how-do-you-extract-a-url-from-a-string-using-python
     link = re.search("(?P<url>https?://[^\s]+)", str(stdout)).group("url").split('\\r')[0]
     # strip extra chars
     link = link.strip("\\n'")
-    print('link: {}'.format(link))
+    if debug:
+        print('link: {}'.format(link))
     return link
 
 def get_pydock_results(link, receptor, ligand):
@@ -128,7 +143,8 @@ def get_pydock_results(link, receptor, ligand):
     communicateRes = get_pydock_process.communicate()
     stdout, stderr = communicateRes
 
-    print('stdout: {}'.format(str(stdout)))
+    if debug:
+        print('stdout: {}'.format(str(stdout)))
 
     results = re.findall(r'[-]?[0-9]+[.]?[0-9]*', str(stdout))
 
@@ -142,13 +158,15 @@ def run_patch_dock_start(receptor, ligand):
     communicateRes = patch_dock_start_process.communicate()
     stdout, stderr = communicateRes
 
-    print('initial web scraper stdout: {} \n initial web scraper stderr: {}'.format(stdout, stderr))
+    if debug:
+        print('initial web scraper stdout: {} \n initial web scraper stderr: {}'.format(stdout, stderr))
 
     if ' line ' not in str(stderr):
-        print('Successfully submitted Patch Dock job.')
+        return True
     else:
-        print('Error in run_patch_dock_start: {}'.format(stderr))
-        raise Exception('run_patch_dock_start')
+        if debug:
+            print('Error in run_patch_dock_start: {}'.format(stderr))
+        return False
 
 def read_patch_dock_mail(receptor, ligand):
     read_patch_dock_process = subprocess.Popen(['python', PATCH_DOCK_READ_MAIL_FILE, PATCH_DOCK_FROM_EMAIL, \
@@ -156,14 +174,16 @@ def read_patch_dock_mail(receptor, ligand):
     communicateRes = read_patch_dock_process.communicate()
     stdout, stderr = communicateRes
 
-    print('read mail stdout: {}'.format(stdout))
-    print('read mail stderr: {}'.format(stderr))
+    if debug:
+        print('read mail stdout: {}'.format(stdout))
+        print('read mail stderr: {}'.format(stderr))
 
     # re source: https://stackoverflow.com/questions/9760588/how-do-you-extract-a-url-from-a-string-using-python
     link = re.search("(?P<url>https?://[^\s]+)", str(stdout)).group("url").split('\\r')[0]
     # strip extra chars
     link = link.strip("\\n'")
-    print('link: {}'.format(link))
+    if debug:
+        print('link: {}'.format(link))
     return link
 
 def get_patch_dock_results(link):
@@ -174,7 +194,8 @@ def get_patch_dock_results(link):
     communicateRes = get_patch_dock_process.communicate()
     stdout, stderr = communicateRes
 
-    print('stdout: {}'.format(str(stdout)))
+    if debug:
+        print('stdout: {}'.format(str(stdout)))
 
     return int(re.search(r'\d+', str(stdout)).group())
 
@@ -194,13 +215,15 @@ def start_patch_dock_workflow(receptor_id, ligand_id, output):
             received_patch_dock_msg = True
         except:
             # submit job to Patch Dock
-            try:
-                run_patch_dock_start(receptor_id, ligand_id)
-                received_patch_dock_msg = False
-            except:
+            attempts = 0
+            while not run_patch_dock_start(receptor_id, ligand_id) and attempts < 3:
+                attempts += 1
+            if attempts == 3:
                 print('Error submitted Patch Dock job')
                 sys.exit(1)
-
+            else:
+                print('Successfully submitted Patch Dock job')
+            received_patch_dock_msg = False
         # get response from Patch Dock
         first_itr = True
         while (not received_patch_dock_msg):
@@ -233,13 +256,15 @@ def run_swarm_dock_start(receptor, ligand):
     communicateRes = swarm_dock_start_process.communicate()
     stdout, stderr = communicateRes
 
-    print('swarm dock start stdout: {} \n swarm dock start stderr: {}'.format(stdout, stderr))
+    if debug:
+        print('swarm dock start stdout: {} \n swarm dock start stderr: {}'.format(stdout, stderr))
 
     if 'ID:' in str(stdout):
-        print('Successfully submitted Swarm Dock job.')
+        return True
     else:
-        print('Error in run_swarm_dock_start: {}'.format(stderr))
-        raise Exception('run_swarm_dock_start')
+        if debug:
+            print('Error in run_swarm_dock_start: {}'.format(stderr))
+        return False
 
 def download_pdb(pdb_id):
     swarm_dock_start_process = subprocess.Popen(
@@ -249,7 +274,8 @@ def download_pdb(pdb_id):
     communicateRes = swarm_dock_start_process.communicate()
     stdout, stderr = communicateRes
 
-    print('download pdb {}: {} \n swarm dock start stderr: {}'.format(pdb_id, stdout, stderr))
+    if debug:
+        print('download pdb {}: {} \n swarm dock start stderr: {}'.format(pdb_id, stdout, stderr))
 
     # verify pdb_id existence
     if ':' in pdb_id:
@@ -268,14 +294,16 @@ def read_swarm_dock_mail(receptor, ligand):
     communicateRes = read_swarm_dock_process.communicate()
     stdout, stderr = communicateRes
 
-    print('read mail stdout: {}'.format(stdout))
-    print('read mail stderr: {}'.format(stderr))
+    if debug:
+        print('read mail stdout: {}'.format(stdout))
+        print('read mail stderr: {}'.format(stderr))
 
     # re source: https://stackoverflow.com/questions/9760588/how-do-you-extract-a-url-from-a-string-using-python
     link = re.search("(?P<url>https?://[^\s]+)", str(stdout)).group("url").split('\\r')[0]
     # strip extra chars
     link = link.strip("\\n'")
-    print('link: {}'.format(link))
+    if debug:
+        print('link: {}'.format(link))
     return link
 
 def get_swarm_dock_results(link, receptor, ligand):
@@ -286,7 +314,8 @@ def get_swarm_dock_results(link, receptor, ligand):
     communicateRes = get_swarm_dock_process.communicate()
     stdout, stderr = communicateRes
 
-    print('stdout: {}'.format(str(stdout)))
+    if debug:
+        print('stdout: {}'.format(str(stdout)))
 
     results = re.findall(r'[-]?[0-9]+[.]?[0-9]*', str(stdout))
 
@@ -309,11 +338,15 @@ def start_swarm_dock_workflow(receptor_id, ligand_id, output):
             received_swarm_dock_msg = True
         except:
             # submit job to Patch Dock
-            try:
-                run_swarm_dock_start(receptor_id, ligand_id)
-            except:
-                print('Error submitting swarm dock job')
+            attempts = 0
+            while not run_swarm_dock_start(receptor_id, ligand_id) and attempts < 3:
+                attempts += 1
+
+            if attempts == 3:
+                print('Error submitting Swarm Dock job')
                 sys.exit(1)
+            else:
+                print('Successfully submitted Swarm Dock job')
 
         # get response from Swarm Dock
         first_itr = True
@@ -337,8 +370,7 @@ def start_swarm_dock_workflow(receptor_id, ligand_id, output):
             insert_results(rec, lig, tool_id, swarm_dock_score)
 
     print('Swarm Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, swarm_dock_score))
-    output.put((PROCESS_NAME_SWARM_DOCK, receptor_id, ligand_id, float(swarm_dock_score[0]), int(swarm_dock_score[1]), int(swarm_dock_score[2]),
-                        int(swarm_dock_score[3]), int(swarm_dock_score[4]), float(swarm_dock_score[5]), float(swarm_dock_score[6])))
+    output.put((PROCESS_NAME_SWARM_DOCK, receptor_id, ligand_id, swarm_dock_score))
 
 def write_output(results):
     # test for existence of pdb dir
@@ -479,13 +511,53 @@ def insert_pdb(pdb_id, chain, cursor):
         print('insert_sql: {}'.format(insert_sql))
     cursor.execute(insert_sql)
 
-output = mp.Queue()
+def build_scores_for_classifier(patch_dock_results, swarm_dock_results, pydock_results):
+    if not len(patch_dock_results) == len(swarm_dock_results) == len(pydock_results):
+        raise Exception('Improperly formatted results:\nNum patch dock results: {}\n Num swarm dock results: {}'
+                        '\n Num pydock results: {}'.format(len(patch_dock_results), len(swarm_dock_results), len(pydock_results)))
 
-try:
-    print('Arg1: {}'.format(sys.argv[1]))
-except:
-    print('Usage: workflow_manager.py <input_file>')
-    sys.exit(1)
+    results = []
+    rec_lig_pairs = []
+    for i in range(len(patch_dock_results)):
+        rec = patch_dock_results[i][1]
+        lig = patch_dock_results[i][2]
+        rec_lig_pairs.append([rec, lig])
+        # assert we are building a score using the same inputs
+        assert swarm_dock_results[i][1] == rec, 'Swarm Dock receptor: {} does not match Patch Dock recptor: {}'.format(
+                    swarm_dock_results[i][1], rec)
+        assert swarm_dock_results[i][2] == lig, 'Swarm Dock ligand: {} does not match Patch Dock ligand: {}'.format(
+            swarm_dock_results[i][2], lig)
+        assert pydock_results[i][1] == rec, 'pyDock receptor: {} does not match Patch Dock recptor: {}'.format(
+            pydock_results[i][1], rec)
+        assert pydock_results[i][2] == lig, 'pyDock ligand: {} does not match Patch Dock ligand: {}'.format(
+            pydock_results[i][2], lig)
+        # get scores
+        patch_dock_score = patch_dock_results[i][3]
+        swarm_dock_score = swarm_dock_results[i][3]
+        pydock_score = pydock_results[i][3]
+        results.append(patch_dock_score + swarm_dock_score + pydock_score)
+
+    return results, rec_lig_pairs
+
+def get_workflow_results_from_queue(queue, num_results):
+    patch_dock_results = []
+    swarm_dock_results = []
+    pydock_results = []
+    for i in range(num_results):
+        r = queue.get()
+        if r[0] == PROCESS_NAME_PATCH_DOCK:
+            patch_dock_results.append(r)
+        elif r[0] == PROCESS_NAME_SWARM_DOCK:
+            swarm_dock_results.append(r)
+        elif r[0] == PROCESS_NAME_PYDOCK:
+            pydock_results.append(r)
+        else:
+            raise Exception('Improperly formatted output result: {}'.format(r))
+
+    return (patch_dock_results, swarm_dock_results, pydock_results)
+
+
+output = mp.Queue()
 
 try:
     with open(sys.argv[1], 'r') as input_file:
@@ -495,7 +567,7 @@ try:
             line = line.strip('\n')
             rec_lig_pairs.append(line.split(' '))
 except:
-    print('Unable to process file: {}'.format(sys.argv[1]))
+    print('Usage: workflow_manager.py <input_file>')
     sys.exit(1)
 
 # create connection to db
@@ -536,35 +608,63 @@ while processes_executed < len(patch_dock_processes):
     num_processes_to_start = len(patch_dock_processes) - processes_executed
     if num_processes_to_start <= MAX_NUM_WORKFLOW_PROCESSES:
         for i in range(num_processes_to_start):
+            if debug:
+                print('start: processes_executed {} i: {}'.format(processes_executed, i))
             patch_dock_processes[processes_executed + i].start()
             swarm_dock_processes[processes_executed + i].start()
             pydock_processes[processes_executed + i].start()
         for i in range(num_processes_to_start):
+            if debug:
+                print('join: processes_executed {} i: {}'.format(processes_executed, i))
             patch_dock_processes[processes_executed + i].join()
             swarm_dock_processes[processes_executed + i].join()
             pydock_processes[processes_executed + i].join()
         processes_executed += num_processes_to_start
     else:
         for i in range(MAX_NUM_WORKFLOW_PROCESSES):
-            print('start: processes_executed {} i: {}'.format(processes_executed, i))
+            if debug:
+                print('start: processes_executed {} i: {}'.format(processes_executed, i))
             patch_dock_processes[processes_executed + i].start()
             swarm_dock_processes[processes_executed + i].start()
             pydock_processes[processes_executed + i].start()
         for i in range(MAX_NUM_WORKFLOW_PROCESSES):
-            print('join: processes_executed {} i: {}'.format(processes_executed, i))
+            if debug:
+                print('join: processes_executed {} i: {}'.format(processes_executed, i))
             patch_dock_processes[processes_executed + i].join()
             swarm_dock_processes[processes_executed + i].join()
             pydock_processes[processes_executed + i].join()
         processes_executed += MAX_NUM_WORKFLOW_PROCESSES
 
+'''
 patch_dock_results = [output.get() for p in patch_dock_processes]
 swarm_dock_results = [output.get() for p in swarm_dock_processes]
 pydock_results = [output.get() for p in pydock_processes]
+'''
 
-write_output(patch_dock_results + swarm_dock_results + pydock_results)
+patch_dock_results, swarm_dock_results, pydock_results = get_workflow_results_from_queue(output,
+                                                                len(patch_dock_processes) + len(swarm_dock_processes) +
+                                                                len(pydock_processes))
 
-print('Patch Dock Results: {}'.format(patch_dock_results))
-print('Swarm Dock Results: {}'.format(swarm_dock_results))
-print('PyDock Results: {}'.format(pydock_results))
+#write_output(patch_dock_results + swarm_dock_results + pydock_results)
+classifier_input_data, rec_lig_pairs = build_scores_for_classifier(patch_dock_results, swarm_dock_results, pydock_results)
 
-print('Concatenated Results: {}'.format(patch_dock_results + swarm_dock_results + pydock_results))
+# create classifier
+classifier = knn_classifier.KNN_Classifier(5)
+
+classification_results = classifier.classify_data(classifier_input_data, len(classifier_input_data))
+
+for i in range(len(classification_results)):
+    if classification_results[i] == 1:
+        out_stmt_modifier = ''
+    else:
+        out_stmt_modifier = 'not '
+
+    print('Receptor {} and Ligand {} do {}dock.'.format(rec_lig_pairs[i][0], rec_lig_pairs[i][1], out_stmt_modifier))
+
+if debug:
+    print('Patch Dock Results: {}'.format(patch_dock_results))
+    print('Swarm Dock Results: {}'.format(swarm_dock_results))
+    print('PyDock Results: {}'.format(pydock_results))
+    print('Concatenated Results: {}'.format(patch_dock_results + swarm_dock_results + pydock_results))
+    print('Classifier input data: {}'.format(classifier_input_data))
+    print('Classification results: {}'.format(classification_results))

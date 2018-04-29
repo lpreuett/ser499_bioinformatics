@@ -6,25 +6,25 @@
 1bvl:ba 3lzt // data collected
 1dqq:cd 3lzt // data collected
 1e6O:hl 1a43 // data collected
-1jpt:hl 1tfh:b
-3hmw:lh 1f45:ab
-1l6p 2b1k:a
-3uiu:a 1q46:a
-1u90:a 2c8b:x
-1mh1 1he9:a
-3eo0:ab 1tgj:ab
-3hi5:hl 1mjn:a
+1jpt:hl 1tfh:b // data collected
+3hmw:lh 1f45:ab // data collected
+1l6p 2b1k:a // data collected
+3uiu:a 1q46:a // data collected
+1u90:a 2c8b:x // data collected
+1mh1 1he9:a // data collected
+3eo0:ab 1tgj:ab // data collected
+3hi5:hl 1mjn:a // data collected
 3v6f:ab 3kxs:f
-2cga:b 1hpt
-1auq 1fvu:ab
-1auq 1m0z:b
+2cga:b 1hpt // data collected
+1auq 1fvu:ab // data collected
+1auq 1m0z:b // data collected
 1jxq:a 2opq:a
-1r6c:x 2w9r:a
-1bqu:a 1emr:a
-1mh1 1nty:a
-3kov:ab 3io2:a
-1c3d:a 1m1u:a
-1ijj:b 1pne
-2zkm:x 1mh1:a
-1fkm:a 1z06:a
-1gfi:a 2bv1:a
+1r6c:x 2w9r:a // data collected
+1bqu:a 1emr:a // data collected
+1mh1 1nty:a // data collected
+3kov:ab 3io2:a // data collected
+1c3d:a 1m1u:a // data collected
+1ijj:b 1pne // data collected
+2zkm:x 1mh1:a // data collected
+1fkm:a 1z06:a // data collected
+1gfi:a 2bv1:a // data collected

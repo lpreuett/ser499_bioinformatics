@@ -7,20 +7,21 @@ import numpy
 import csv
 from scipy.spatial import distance
 import os
-import tarfile
-import re
+import sqlite3
 
 class KNN_Classifier:
-
     # USE ODD VALUES FOR K
     def __init__(self, knn_k=1):
+        cwd = os.getcwd()
+        cwd_split = cwd.split('/')
+        if cwd_split[len(cwd_split) - 1] == 'bin':
+            os.chdir('./Classifiers')
         self.__GOOD_PAIRS_FILE = '../good_pairs.txt'
         self.__BAD_PAIRS_FILE = '../bad_pairs.txt'
         self.__data = []
-        self.PATCH_DOCK_OUTPUT_DIR = '../Patch Dock/output'
-        self.PYDOCK_OUTPUT_DIR = '../pyDockWEB/output'
-        self.SWARM_DOCK_OUTPUT_DIR = '../Swarm Dock/output'
-        self.__debug = True
+        self.__debug = False
+        self.DB_DIR = '../Database'
+        self.DB_FILENAME = 'workflow.db'
 
         if knn_k > 0:
             self.k = knn_k
@@ -49,22 +50,26 @@ class KNN_Classifier:
 
         # exclude pairs for which we do not have data from all tools
         for pair in rec_lig_pairs:
-            rec = pair[0].split(':')[0].upper()
-            lig = pair[1].split(':')[0].upper()
-            filename = rec + '_' + lig
-            if os.path.isfile(self.PATCH_DOCK_OUTPUT_DIR + '/' + filename + '.txt') and \
-                os.path.isfile(self.PYDOCK_OUTPUT_DIR + '/' + filename + '.tar.gz') and \
-                os.path.isfile(self.SWARM_DOCK_OUTPUT_DIR + '/' + filename + '.tar.gz'):
+            rec = pair[0].split(':')[0]
+            lig = pair[1].split(':')[0]
+            tool_ids = self.get_tool_ids()
+            have_data = True
+            for tool_id in tool_ids:
+                if not self.results_exist(rec, lig, tool_id):
+                    have_data = False
+
+            if have_data:
                 # get scores
-                patch_dock_score = self.__get_patch_dock_score(filename+'.txt')
-                swarm_dock_score = self.__get_swarm_dock_score(filename+'.tar.gz')
-                pydock_score = self.__get_pydock_score(filename+'.tar.gz')
-                print('scores: {} {} {}'.format(patch_dock_score, swarm_dock_score, pydock_score))
+                patch_dock_score = self.get_results(rec, lig, 1)
+                swarm_dock_score = self.get_results(rec, lig, 3)
+                pydock_score = self.get_results(rec, lig, 2)
+                if self.__debug:
+                    print('scores: {} {} {}'.format(patch_dock_score, swarm_dock_score, pydock_score))
                 if pair[2] == 'y':
                     value = 1
                 else:
                     value = 0
-                score = [patch_dock_score] + swarm_dock_score + pydock_score + [value]
+                score = patch_dock_score + swarm_dock_score + pydock_score + [value]
                 if self.__debug:
                     print('Score: {}'.format(score))
                 self.__data.append(score)
@@ -80,68 +85,78 @@ class KNN_Classifier:
         if self.__debug:
             print('data: {}'.format(self.__data))
 
-    def __get_pydock_score(self, filename):
-        # extract .tar.gz
-        tar = tarfile.open(self.PYDOCK_OUTPUT_DIR + '/' + filename)
-        tar_members = tar.getmembers()
-        RESULTS_FILE = None
-        for m in tar_members:
-            if re.search('\w+\.ene', m.name):
-                RESULTS_FILE = m.name
-        results_file = tar.extractfile(RESULTS_FILE)
+    def get_tool_ids(self):
+        # create connection to db
+        conn = sqlite3.connect('{}/{}'.format(self.DB_DIR, self.DB_FILENAME))
+        # get db cursor
+        cursor = conn.cursor()
+        query = 'SELECT id FROM Tool'
+        results = cursor.execute(query).fetchall()
+        return [i[0] for i in results]
 
-        results = None
-        line_num = 0
-        for line in results_file:
-            if line_num == 2:
-                # top result
-                decoded_line = line.decode('utf-8')
-                outputs = re.findall('(-?\d+\.\d+)', decoded_line)
-                break
+    def get_results(self, rec, lig, tool):
+        # create connection to db
+        conn = sqlite3.connect('{}/{}'.format(self.DB_DIR, self.DB_FILENAME))
+        # get db cursor
+        cursor = conn.cursor()
+        expected_results = self.get_expected_results(tool)
 
-            line_num += 1
-        if self.__debug:
-            print('pydock score for {} is {}'.format(filename, outputs))
-        return outputs
+        # get largest feature id
+        query = 'SELECT max(feature_id) FROM Result WHERE rec_pdb_id=:rec AND lig_pdb_id=:lig AND tool_id=:tool'
+        dictionary = {'rec': rec, 'lig': lig, 'tool': tool}
+        results = cursor.execute(query, dictionary).fetchall()
+        feature_id = results[0][0]
+        if feature_id is None:
+            conn.close()
+            return None
 
-    def __get_swarm_dock_score(self, filename):
-        RESULTS_FILENAME = 'sds/clusters_standard.txt'
-        # extract .tar.gz
-        tar = tarfile.open(self.SWARM_DOCK_OUTPUT_DIR + '/' + filename)
-        results_file = tar.extractfile(RESULTS_FILENAME)
+        while feature_id >= 1:
+            # build query
+            query = 'SELECT feature_value FROM Result WHERE rec_pdb_id=:rec AND lig_pdb_id=:lig AND tool_id=:tool AND feature_id=:feature_id'
+            dictionary = {'rec': rec, 'lig': lig, 'tool': tool, 'feature_id': feature_id}
+            # get results
+            results = cursor.execute(query, dictionary).fetchall()
 
-        results = None
-        is_first_line = True
-        for line in results_file:
-            if is_first_line:
-                is_first_line = False
-                continue
-            # select first result with 3 or less members
-            # decode line
-            decoded_line = line.decode('utf8')
-            # count number of members
-            members_start = decoded_line.find('[')
-            members_finish = decoded_line.find(']')
-            members = decoded_line[members_start + 1:members_finish].split('|')
-            if len(members) <= 3:
-                results = decoded_line.split(' ')
-                results = results[1:3] + results[4:]
-                results = ' '.join(results)
-                break
-        results = results.rstrip().split(' ')
-        if self.__debug:
-            print('swarm dock score for {} is {}'.format(filename, results))
-        return results
+            if len(results) == expected_results:
+                conn.close()
+                return [i[0] for i in results]
+            else:
+                feature_id -= 1
 
-    def __get_patch_dock_score(self, filename):
-        with open(self.PATCH_DOCK_OUTPUT_DIR + '/' + filename, 'r') as file:
-            line = file.readline()
-        if self.__debug:
-            print('patch dock score for {} is {}'.format(filename, line))
-        return line
+        conn.close()
+        return None
+
+    def get_expected_results(self, tool):
+        # set expected results
+        if tool == 1 or tool == 4:
+            expected_results = 1
+        elif tool == 2:
+            expected_results = 4
+        elif tool == 3:
+            expected_results = 7
+
+        return expected_results
+
+    def results_exist(self, rec, lig, tool):
+        # create connection to db
+        conn = sqlite3.connect('{}/{}'.format(self.DB_DIR, self.DB_FILENAME))
+        # get db cursor
+        cursor = conn.cursor()
+        # build query
+        query = 'SELECT * FROM Result WHERE rec_pdb_id=:rec AND lig_pdb_id=:lig AND tool_id=:tool'
+        dictionary = {'rec': rec, 'lig': lig, 'tool': tool}
+        # get results
+        results = cursor.execute(query, dictionary).fetchall()
+
+        # set expected results
+        expected_results = self.get_expected_results(tool)
+
+        if len(results) >= expected_results:
+            return True
+        else:
+            return False
 
     def __calc_distance(self, v1, v2):
-        print('v1: {}\nv2: {}'.format(v1, v2))
         delta = distance.euclidean(v1[:12], v2[:12])
         if self.__debug:
             print('KNN_Classifier.__calc_distance(v1, v2):')
@@ -174,7 +189,8 @@ class KNN_Classifier:
                     furthest_neighbor_index = i
                     furthest_neighbor_delta = k_neighbors_delta[i]
 
-        print('k_neighbors after __calc_k_neighbors: ' + str(k_neighbors.astype(int)))
+        if self.__debug:
+            print('k_neighbors after __calc_k_neighbors: ' + str(k_neighbors.astype(int)))
         return k_neighbors.astype(int)
 
     def __get_neighbor_classification(self, k_neighbors):
@@ -217,10 +233,11 @@ class KNN_Classifier:
 
 # RETURN LABEL IN PLACE OF 0/1
 # USE sqlite3 LIBRARY
-
+'''
 classifier = KNN_Classifier(5)
 data = numpy.array([[14598, -40.73, 1, 497, 0, 0, -40.730, 0.000, -12.886, -30.628, 21.847, -41.329]])
 data = data.astype(float)
 outputs = classifier.classify_data(data, 1)
 
 print('Classifier outputs: {}'.format(outputs))
+'''
