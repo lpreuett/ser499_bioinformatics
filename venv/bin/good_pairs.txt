@@ -14,11 +14,11 @@
 1mh1 1he9:a // data collected
 3eo0:ab 1tgj:ab // data collected
 3hi5:hl 1mjn:a // data collected
-3v6f:ab 3kxs:f
+3v6f:ab 3kxs:f // data collected
 2cga:b 1hpt // data collected
 1auq 1fvu:ab // data collected
 1auq 1m0z:b // data collected
-1jxq:a 2opq:a
+1jxq:a 2opq:a // data collected
 1r6c:x 2w9r:a // data collected
 1bqu:a 1emr:a // data collected
 1mh1 1nty:a // data collected

@@ -4,7 +4,6 @@
     <list default="true" id="b9463f41-7d77-4929-9962-cfb5317c9331" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/Database/workflow.db" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/Database/workflow.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/good_pairs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/good_pairs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py" afterDir="false" />
@@ -21,21 +20,21 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/SER499_web_scraper$read_gmail.coverage" NAME="read_gmail Coverage Results" MODIFIED="1518396497469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$pyDock_get_results.coverage" NAME="pyDock_get_results Coverage Results" MODIFIED="1523222824131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/pyDockWEB" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$load_db.coverage" NAME="load_db Coverage Results" MODIFIED="1524970799931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Database" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$load_db.coverage" NAME="load_db Coverage Results" MODIFIED="1525064194257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Database" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$pdb_crawler.coverage" NAME="pdb_crawler Coverage Results" MODIFIED="1519795069698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$download_pdb__1_.coverage" NAME="download_pdb (1) Coverage Results" MODIFIED="1519931174316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$crawler.coverage" NAME="crawler Coverage Results" MODIFIED="1517981208552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$z_dock_form_submit.coverage" NAME="z_dock_form_submit Coverage Results" MODIFIED="1521055065787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$patch_dock_read_mail.coverage" NAME="patch_dock_read_mail Coverage Results" MODIFIED="1522807097273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$swarm_dock_get_results.coverage" NAME="swarm_dock_get_results Coverage Results" MODIFIED="1522820182525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Swarm Dock" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$KNN_Classifier_V2__1_.coverage" NAME="KNN_Classifier_V2 (1) Coverage Results" MODIFIED="1524970813230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Classifiers" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$KNN_Classifier_V2__1_.coverage" NAME="KNN_Classifier_V2 (1) Coverage Results" MODIFIED="1525064199975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Classifiers" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$swarm_dock_form_submit_crawler__1_.coverage" NAME="swarm_dock_form_submit_crawler (1) Coverage Results" MODIFIED="1522732445927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Swarm Dock" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$KNN_Classifier_V2.coverage" NAME="KNN_Classifier_V2 Coverage Results" MODIFIED="1523416047989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$Naive_Bayes_Classifier.coverage" NAME="Naive_Bayes_Classifier Coverage Results" MODIFIED="1524970808069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Classifiers" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$Naive_Bayes_Classifier.coverage" NAME="Naive_Bayes_Classifier Coverage Results" MODIFIED="1525063984632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Classifiers" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$swarm_dock_form_submit_crawler.coverage" NAME="swarm_dock_form_submit_crawler Coverage Results" MODIFIED="1522003843296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$pyDock_form_submit.coverage" NAME="pyDock_form_submit Coverage Results" MODIFIED="1524976670599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/pyDockWEB" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$pyDock_form_submit.coverage" NAME="pyDock_form_submit Coverage Results" MODIFIED="1525064359377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/pyDockWEB" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$patch_dock_form_submit_crawler.coverage" NAME="patch_dock_form_submit_crawler Coverage Results" MODIFIED="1518499367515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
-    <SUITE FILE_PATH="coverage/SER499_web_scraper$workflow_manager.coverage" NAME="workflow_manager Coverage Results" MODIFIED="1524968793420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
+    <SUITE FILE_PATH="coverage/SER499_web_scraper$workflow_manager.coverage" NAME="workflow_manager Coverage Results" MODIFIED="1525063790529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin" />
     <SUITE FILE_PATH="coverage/SER499_web_scraper$download_pdb.coverage" NAME="download_pdb Coverage Results" MODIFIED="1522732437024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/bin/Swarm Dock" />
   </component>
   <component name="FileEditorManager">
@@ -43,8 +42,8 @@
       <file leaf-file-name="KNN_Classifier_V2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="235" column="3" lean-forward="true" selection-start-line="235" selection-start-column="3" selection-end-line="235" selection-end-column="3" />
+            <state relative-caret-position="222">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="e#51#63#0" expanded="true" />
               </folding>
@@ -55,8 +54,8 @@
       <file leaf-file-name="Naive_Bayes_Classifier.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+            <state relative-caret-position="273">
+              <caret line="89" column="47" lean-forward="true" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
               <folding>
                 <element signature="e#52#64#0" expanded="true" />
               </folding>
@@ -67,8 +66,8 @@
       <file leaf-file-name="workflow_inputs.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="15">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -76,17 +75,17 @@
       <file leaf-file-name="good_pairs.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/good_pairs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            <state relative-caret-position="300">
+              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workflow_manager.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="workflow_manager.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8850">
-              <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+            <state relative-caret-position="93">
+              <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -97,8 +96,8 @@
       <file leaf-file-name="bad_pairs.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="2" selection-end-column="29" />
+            <state relative-caret-position="300">
+              <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -106,8 +105,8 @@
       <file leaf-file-name="load_db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/Database/load_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+            <state relative-caret-position="1318">
+              <caret line="256" column="9" selection-start-line="256" selection-end-line="256" selection-end-column="9" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -115,14 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pyDock_form_submit.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pyDock_form_submit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-2">
+              <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -138,7 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>1BVL</find>
       <find>15340</find>
       <find>1f</find>
       <find>14598</find>
@@ -168,6 +163,7 @@
       <find>wait</find>
       <find>print</find>
       <find>NUM_INPUT_DATA</find>
+      <find>pairs</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -204,12 +200,12 @@
         <option value="$PROJECT_DIR$/venv/bin/Swarm Dock/swarm_dock_form_submit_crawler.py" />
         <option value="$PROJECT_DIR$/venv/bin/bad_pairs.txt" />
         <option value="$PROJECT_DIR$/venv/bin/Database/load_db.py" />
-        <option value="$PROJECT_DIR$/venv/bin/good_pairs.txt" />
-        <option value="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" />
-        <option value="$PROJECT_DIR$/venv/bin/workflow_manager.py" />
         <option value="$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py" />
-        <option value="$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py" />
         <option value="$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py" />
+        <option value="$PROJECT_DIR$/venv/bin/workflow_inputs.txt" />
+        <option value="$PROJECT_DIR$/venv/bin/good_pairs.txt" />
+        <option value="$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py" />
+        <option value="$PROJECT_DIR$/venv/bin/workflow_manager.py" />
       </list>
     </option>
   </component>
@@ -230,6 +226,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -255,18 +252,10 @@
               <item name="bin" type="462c0819:PsiDirectoryNode" />
               <item name="Classifiers" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SER499_web_scraper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SER499_web_scraper" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="pyDockWEB" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,7 +353,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py" />
-      <option name="PARAMETERS" value="3v6f:ab 3kxs:f" />
+      <option name="PARAMETERS" value="1dqq:cd 1e6o:hl" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -399,8 +388,8 @@
       <list>
         <item itemvalue="Python.pyDock_form_submit" />
         <item itemvalue="Python.KNN_Classifier_V2 (1)" />
-        <item itemvalue="Python.Naive_Bayes_Classifier" />
         <item itemvalue="Python.load_db" />
+        <item itemvalue="Python.Naive_Bayes_Classifier" />
         <item itemvalue="Python.workflow_manager" />
       </list>
     </recent_temporary>
@@ -444,9 +433,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32939914" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32903227" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30107528" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30107528" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32903227" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24847375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25763127" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32967034" />
@@ -466,25 +455,25 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21978022" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24969475" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32939914" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22365591" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="9" visible="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39892474" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32903227" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="9" visible="true" weight="0.32903227" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,6 +499,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/patch_dock_form_submit_crawler.py" />
     <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -670,54 +666,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/pip">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8850">
-          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/good_pairs.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/bin/Database/load_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/workflow_inputs.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="15">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/Naive_Bayes_Classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+        <state relative-caret-position="273">
+          <caret line="89" column="47" lean-forward="true" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
           <folding>
             <element signature="e#52#64#0" expanded="true" />
           </folding>
@@ -726,20 +685,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/Classifiers/KNN_Classifier_V2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="235" column="3" lean-forward="true" selection-start-line="235" selection-start-column="3" selection-end-line="235" selection-end-column="3" />
+        <state relative-caret-position="222">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="e#51#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/Database/load_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1318">
+          <caret line="256" column="9" selection-start-line="256" selection-end-line="256" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/good_pairs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/bad_pairs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/pyDockWEB/pyDock_form_submit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+        <state relative-caret-position="-2">
+          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/workflow_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

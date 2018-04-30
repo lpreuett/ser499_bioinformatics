@@ -19,7 +19,7 @@ class KNN_Classifier:
         self.__GOOD_PAIRS_FILE = '../good_pairs.txt'
         self.__BAD_PAIRS_FILE = '../bad_pairs.txt'
         self.__data = []
-        self.__debug = False
+        self.__debug = True
         self.DB_DIR = '../Database'
         self.DB_FILENAME = 'workflow.db'
 
@@ -57,6 +57,7 @@ class KNN_Classifier:
             for tool_id in tool_ids:
                 if not self.results_exist(rec, lig, tool_id):
                     have_data = False
+                    print('Dont have data for tool_id: {} rec: {} lig: {}'.format(tool_id, rec, lig))
 
             if have_data:
                 # get scores
@@ -231,13 +232,9 @@ class KNN_Classifier:
 
         return classified_data.astype(int)
 
-# RETURN LABEL IN PLACE OF 0/1
-# USE sqlite3 LIBRARY
-'''
 classifier = KNN_Classifier(5)
 data = numpy.array([[14598, -40.73, 1, 497, 0, 0, -40.730, 0.000, -12.886, -30.628, 21.847, -41.329]])
 data = data.astype(float)
 outputs = classifier.classify_data(data, 1)
 
 print('Classifier outputs: {}'.format(outputs))
-'''

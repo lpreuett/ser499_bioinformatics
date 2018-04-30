@@ -148,7 +148,7 @@ def get_pydock_results(link, receptor, ligand):
 
     results = re.findall(r'[-]?[0-9]+[.]?[0-9]*', str(stdout))
 
-    return results
+    return [float(r) for r in results]
 
 def run_patch_dock_start(receptor, ligand):
     patch_dock_start_process = subprocess.Popen(
@@ -371,16 +371,6 @@ def start_swarm_dock_workflow(receptor_id, ligand_id, output):
 
     print('Swarm Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, swarm_dock_score))
     output.put((PROCESS_NAME_SWARM_DOCK, receptor_id, ligand_id, swarm_dock_score))
-
-def write_output(results):
-    # test for existence of pdb dir
-    if not os.path.isdir(OUTPUT_DIR):
-        os.makedirs(OUTPUT_DIR)
-
-    with open(OUTPUT_DIR + '/workflow_output.csv', 'w', newline='') as csvfile:
-        for r in results:
-            writer = csv.writer(csvfile, delimiter=' ')
-            writer.writerow(r)
 
 def insert_results(rec, lig, tool, output):
     # very output
@@ -634,12 +624,6 @@ while processes_executed < len(patch_dock_processes):
             swarm_dock_processes[processes_executed + i].join()
             pydock_processes[processes_executed + i].join()
         processes_executed += MAX_NUM_WORKFLOW_PROCESSES
-
-'''
-patch_dock_results = [output.get() for p in patch_dock_processes]
-swarm_dock_results = [output.get() for p in swarm_dock_processes]
-pydock_results = [output.get() for p in pydock_processes]
-'''
 
 patch_dock_results, swarm_dock_results, pydock_results = get_workflow_results_from_queue(output,
                                                                 len(patch_dock_processes) + len(swarm_dock_processes) +
