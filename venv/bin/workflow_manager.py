@@ -320,7 +320,7 @@ def get_swarm_dock_results(link, receptor, ligand):
 
     results = re.findall(r'[-]?[0-9]+[.]?[0-9]*', str(stdout))
 
-    return results
+    return [float(r) for r in results]
 
 def start_swarm_dock_workflow(receptor_id, ligand_id, output):
     tool_id = 3

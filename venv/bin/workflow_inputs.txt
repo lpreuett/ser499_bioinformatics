@@ -1,2 +1,1 @@
-1kgc 2av3 # submitted 4-30 for presentation - demonstrate data download and insert into DB
 1e3k 1e3g # example data not submitted - to demonstrate job submit and pdb add functionality
