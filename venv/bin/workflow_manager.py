@@ -9,6 +9,7 @@ import os
 import tarfile
 import sqlite3
 import importlib.util
+from datetime import datetime
 
 # import Classifier
 knn_classifier_spec = importlib.util.spec_from_file_location('KNN_Classifier', './Classifiers/KNN_Classifier_V2.py')
@@ -47,7 +48,7 @@ OUTPUT_DIR = './workflow_output'
 
 MAX_NUM_WORKFLOW_PROCESSES = 1
 
-debug = False
+debug = True
 
 def start_pydock_workflow(receptor_id, ligand_id, output):
     tool_id = 2
@@ -197,7 +198,7 @@ def get_patch_dock_results(link):
     if debug:
         print('stdout: {}'.format(str(stdout)))
 
-    return int(re.search(r'\d+', str(stdout)).group())
+    return [int(re.search(r'\d+', str(stdout)).group())]
 
 def start_patch_dock_workflow(receptor_id, ligand_id, output):
     tool_id = 1
@@ -243,7 +244,7 @@ def start_patch_dock_workflow(receptor_id, ligand_id, output):
 
         patch_dock_score = get_patch_dock_results(link)
         if new_results:
-            insert_results(rec, lig, tool_id, [patch_dock_score])
+            insert_results(rec, lig, tool_id, patch_dock_score)
 
     print('Patch Dock Score for receptor: {} and ligand: {} is {}'.format(receptor_id, ligand_id, patch_dock_score))
     output.put((PROCESS_NAME_PATCH_DOCK, receptor_id, ligand_id, patch_dock_score))
@@ -482,24 +483,19 @@ def insert_pdb(pdb_id, chain, cursor):
     else:
         pdb_entry_id += 1
     filename = pdb_id.upper() + '.pdb'
-    file_path = SWARM_DOCK_DIR + 'pdb/' + filename
+    file_path = SWARM_DOCK_DIR + '/pdb/' + filename
     # verify file exists
     if not os.path.isfile(file_path):
         # download if file does not exist
         download_pdb(pdb_id)
     f_stat = os.stat(file_path)
     date = datetime.fromtimestamp(f_stat.st_birthtime).date()
-    if chain == None:
-        insert_sql = 'INSERT INTO Protein VALUES ' + "({}, \'{}\', {}, \'{}\', \'{}\')".format(pdb_entry_id, pdb_id,
-                                                                                               chain, filename,
-                                                                                               date)
-    else:
-        insert_sql = 'INSERT INTO Protein VALUES ' + "({}, \'{}\', \'{}\', \'{}\', \'{}\')".format(pdb_entry_id, pdb_id,
-                                                                                                   chain, filename,
-                                                                                                   date)
+    insert_sql = 'INSERT INTO Protein VALUES (?, ?, ?, ?, ?)'
+
     if debug:
         print('insert_sql: {}'.format(insert_sql))
-    cursor.execute(insert_sql)
+
+    cursor.execute(insert_sql, (pdb_entry_id, pdb_id, chain, filename, date))
 
 def build_scores_for_classifier(patch_dock_results, swarm_dock_results, pydock_results):
     if not len(patch_dock_results) == len(swarm_dock_results) == len(pydock_results):

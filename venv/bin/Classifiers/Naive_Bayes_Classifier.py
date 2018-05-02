@@ -91,7 +91,7 @@ class Naive_Bayes_Classifier:
         self.__noData = self.__noData.astype(float)
         self.__yesData = self.__yesData.astype(float)
 
-        if self.__yesData.size == 0:
+        if len(self.__yesData) == 0:
             self.means_yes = [0 for i in range(12)]
             self.covar_yes = numpy.zeros((12,12))
         else:
@@ -100,7 +100,7 @@ class Naive_Bayes_Classifier:
                 self.means_yes.append(numpy.mean(self.__yesData[k]))
             self.covar_yes = numpy.cov(self.__yesData[:, 0:12], rowvar=False)
 
-        if self.__noData.size == 0:
+        if len(self.__noData) == 0:
             self.means_no = [0 for i in range(12)]
             self.covar_no = numpy.zeros((12,12))
         else:
@@ -109,6 +109,9 @@ class Naive_Bayes_Classifier:
             self.covar_no = numpy.cov(self.__noData[:, 0:12], rowvar=False)
 
         self.NUM_INPUT_DATA = len(self.__data)
+
+        print('det cova no: {}'.format(numpy.linalg.det(self.covar_no)))
+        print('det covar yes: {}'.format(numpy.linalg.det(self.covar_yes)))
 
         if self.__debug:
             print('data: {}'.format(self.__data))

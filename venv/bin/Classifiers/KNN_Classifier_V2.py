@@ -19,7 +19,7 @@ class KNN_Classifier:
         self.__GOOD_PAIRS_FILE = '../good_pairs.txt'
         self.__BAD_PAIRS_FILE = '../bad_pairs.txt'
         self.__data = []
-        self.__debug = True
+        self.__debug = False
         self.DB_DIR = '../Database'
         self.DB_FILENAME = 'workflow.db'
 
@@ -85,6 +85,7 @@ class KNN_Classifier:
 
         if self.__debug:
             print('data: {}'.format(self.__data))
+            print('data size: {}'.format(len(self.__data)))
 
     def get_tool_ids(self):
         # create connection to db
@@ -231,10 +232,11 @@ class KNN_Classifier:
             print('Output of KNN_Classifier.classified_data: ' + str(classified_data.astype(int)))
 
         return classified_data.astype(int)
-
+'''
 classifier = KNN_Classifier(5)
 data = numpy.array([[14598, -40.73, 1, 497, 0, 0, -40.730, 0.000, -12.886, -30.628, 21.847, -41.329]])
 data = data.astype(float)
 outputs = classifier.classify_data(data, 1)
 
 print('Classifier outputs: {}'.format(outputs))
+'''

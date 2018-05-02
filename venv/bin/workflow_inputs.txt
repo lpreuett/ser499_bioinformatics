@@ -1,13 +1,2 @@
-3v6f:ab 3kxs:f
-1jxq:a 2opq:a
-1pig 1hoe // data collected
-1ccp 1ycc // data collected
-1sup 3ssi // data collected
-1bec 1se4 // data collected
-1fgn:lh 1tfh:a // data collected
-1bvl:ba 3lzt // data collected
-1dqq:cd 3lzt // data collected
-1e6O:hl 1a43 // data collected
-1jpt:hl 1tfh:b // data collected
-3hmw:lh 1f45:ab // data collected
-1l6p 2b1k:a // data collected
+1kgc 2av3 # submitted 4-30 for presentation - demonstrate data download and insert into DB
+1e3k 1e3g # example data not submitted - to demonstrate job submit and pdb add functionality
